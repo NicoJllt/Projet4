@@ -1,6 +1,7 @@
 <?php
 // ROUTEUR
 require('autoload.php');
+require('NewsController.php');
 
 if (isset($_GET['action'])) {
     if ($_GET['action'] === "homepage") {
@@ -8,4 +9,16 @@ if (isset($_GET['action'])) {
     } 
 } else {
     require("homepage.html");
+}
+
+if (isset($_GET['action']))
+{
+    if ($_GET['action'] == 'showNews')
+    {
+        getLastNews();
+    } else {
+        echo 'Aucune news n\'a été trouvée';
+    }
+} else {
+    getLastNews();
 }
