@@ -1,6 +1,9 @@
 <?php
 // MANAGER PDO DES NEWS
-class MessagesManager_PDO extends MessagesManager
+
+require ('NewsManager.php');
+
+class NewsManager_PDO extends NewsManager
 {
     /**
      * Attribut contenant l'instance représentant la BDD.

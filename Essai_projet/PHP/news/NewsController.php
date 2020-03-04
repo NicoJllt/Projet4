@@ -2,6 +2,7 @@
 // CONTROLLER DES NEWS
 
 require ('News.php');
+require ('NewsManager_PDO.php');
 
 class NewsController
 {
@@ -15,6 +16,7 @@ class NewsController
 
     function getLastNews() 
     {
-        $news = lastNews();
+        $news = $this->manager->lastNews();
+        return $news;
     }
 }

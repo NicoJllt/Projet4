@@ -9,7 +9,7 @@
     <?php
     foreach($news as $showNews)
     {
-    echo $news->news;
+    echo $showNews->content;
     }
     ?>
     </body>
