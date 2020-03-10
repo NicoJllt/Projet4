@@ -24,6 +24,5 @@ if (isset($_GET['action']))
 } else {
     $newsCtlr = new NewsController();
     $news = $newsCtlr->getLastNews();
-    // require('view.php');
-    echo $news;
+    require('view.php');
 }

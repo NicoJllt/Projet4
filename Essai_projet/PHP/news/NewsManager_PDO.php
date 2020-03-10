@@ -67,7 +67,7 @@ class NewsManager_PDO extends NewsManager
         // Requête de récupération des 10 dernières news publiées classées dans l'ordre anti-chronologique
         $requete = $this->dataBase->query('SELECT * FROM news ORDER BY dateNews DESC LIMIT 10');
         $requete->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'News');
-        return $requete->execute();
+        return $requete->fetchAll();
     }
 
     public function searchByDate($date)
