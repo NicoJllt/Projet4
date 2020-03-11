@@ -1,8 +1,8 @@
 <?php
 // CONTROLLER DES NEWS
 
-require ('News.php');
-require ('NewsManager_PDO.php');
+require ('./entity/News.php');
+require ('./model/NewsManager_PDO.php');
 
 class NewsController
 {

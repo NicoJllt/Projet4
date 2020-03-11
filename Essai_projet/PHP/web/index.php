@@ -1,6 +1,6 @@
 <?php
 // ROUTEUR
-require('autoload.php');
+require('./autoload.php');
 require('./news/NewsController.php');
 
 // if (isset($_GET['action'])) {
@@ -17,12 +17,12 @@ if (isset($_GET['action']))
     {
         $newsCtlr = new NewsController();
         $news = $newsCtlr->getLastNews();
-        require('lastNews.php');
+        require('./view/front/lastNews.php');
     } else {
         echo 'Aucune news n\'a été trouvée';
     }
 } else {
     $newsCtlr = new NewsController();
     $news = $newsCtlr->getLastNews();
-    require('lastNews.php');
+    require('./view/front/lastNews.php');
 }
