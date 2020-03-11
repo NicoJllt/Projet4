@@ -19,4 +19,10 @@ class NewsController
         $news = $this->manager->lastNews();
         return $news;
     }
+
+    function getNews() 
+    {
+        $news = $this->manager->getUnique($id);
+        return $news;
+    }
 }

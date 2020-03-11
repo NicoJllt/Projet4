@@ -17,12 +17,12 @@ if (isset($_GET['action']))
     {
         $newsCtlr = new NewsController();
         $news = $newsCtlr->getLastNews();
-        require('view.php');
+        require('lastNews.php');
     } else {
         echo 'Aucune news n\'a été trouvée';
     }
 } else {
     $newsCtlr = new NewsController();
     $news = $newsCtlr->getLastNews();
-    require('view.php');
+    require('lastNews.php');
 }
