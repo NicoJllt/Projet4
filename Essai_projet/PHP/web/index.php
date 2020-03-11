@@ -26,3 +26,10 @@ if (isset($_GET['action']))
     $news = $newsCtlr->getLastNews();
     require('./view/front/lastNews.php');
 }
+
+if ($_GET['action'] == 'idNews')
+    {
+        $newsCtlr = new NewsController();
+        $news = $newsCtlr->getNews();
+        require('./view/front/viewNews.php');
+    }
