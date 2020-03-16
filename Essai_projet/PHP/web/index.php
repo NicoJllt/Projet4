@@ -1,7 +1,7 @@
 <?php
 // ROUTEUR
-require('./autoload.php');
-require('./news/NewsController.php');
+require('../autoload.php');
+require('../news/NewsController.php');
 
 // if (isset($_GET['action'])) {
 //     if ($_GET['action'] === "homepage") {
@@ -17,14 +17,14 @@ if (isset($_GET['action']))
     {
         $newsCtlr = new NewsController();
         $news = $newsCtlr->getLastNews();
-        require('./view/front/lastNews.php');
+        require('../view/front/lastNews.php');
     } 
     else if (preg_match(("showNewsNumber|"), $_GET['action']))
     {
-        $newsId = explode("|", );
+        $newsId = explode("|", $_GET['action']);
         $newsCtlr = new NewsController();
         $news = $newsCtlr->getNews($id);
-        require('./view/front/viewNews.php');
+        require('../view/front/viewNews.php');
     } 
     else if
     {
@@ -33,6 +33,6 @@ if (isset($_GET['action']))
 } else {
     $newsCtlr = new NewsController();
     $news = $newsCtlr->getLastNews();
-    require('./view/front/lastNews.php');
+    require('../view/front/lastNews.php');
 }
 

@@ -3,6 +3,7 @@
 
 require ('../entity/News.php');
 require ('../model/NewsManager_PDO.php');
+require ('../db/DBFactory.php');
 
 class NewsController
 {
