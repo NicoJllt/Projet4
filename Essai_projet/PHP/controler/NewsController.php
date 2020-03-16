@@ -1,8 +1,8 @@
 <?php
 // CONTROLLER DES NEWS
 
-require ('./entity/News.php');
-require ('./model/NewsManager_PDO.php');
+require ('../entity/News.php');
+require ('../model/NewsManager_PDO.php');
 
 class NewsController
 {
@@ -20,7 +20,7 @@ class NewsController
         return $news;
     }
 
-    function getNews() 
+    function getNews($id) 
     {
         $news = $this->manager->getUnique($id);
         return $news;

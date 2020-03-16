@@ -2,11 +2,13 @@
     <head>
     </head>
     <body>
-        <h1>Titre news</h1>
-            <article>Contenu</article>
+        <h1><?= $news->title()?></h1>
+            <article><?= $news->content()?></article> 
 
     <?php
-
+        // $idNews = $news->id();
+        // $showNews = explode("", $idNews);
+        // echo $showNews($idNews);
     
     ?>
 

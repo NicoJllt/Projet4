@@ -3,9 +3,8 @@
         <title>Accueil</title>
     </head>
     <body>
-        <h1>News</h1>
-            <h2>Titre news 1</h2>
-                <article>Contenu</article>
+        <h1><?= $news->title()?></h1>
+                <article><?= $news->content()?></article>
 
     <?php
 

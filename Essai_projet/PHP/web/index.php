@@ -18,7 +18,16 @@ if (isset($_GET['action']))
         $newsCtlr = new NewsController();
         $news = $newsCtlr->getLastNews();
         require('./view/front/lastNews.php');
-    } else {
+    } 
+    else if (preg_match(("showNewsNumber|"), $_GET['action']))
+    {
+        $newsId = explode("|", );
+        $newsCtlr = new NewsController();
+        $news = $newsCtlr->getNews($id);
+        require('./view/front/viewNews.php');
+    } 
+    else if
+    {
         echo 'Aucune news n\'a été trouvée';
     }
 } else {
@@ -27,9 +36,3 @@ if (isset($_GET['action']))
     require('./view/front/lastNews.php');
 }
 
-if ($_GET['action'] == 'idNews')
-    {
-        $newsCtlr = new NewsController();
-        $news = $newsCtlr->getNews();
-        require('./view/front/viewNews.php');
-    }
