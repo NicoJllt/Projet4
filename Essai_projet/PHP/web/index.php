@@ -22,6 +22,7 @@ if (isset($_GET['action']))
     else if (preg_match(("showNewsNumber|"), $_GET['action']))
     {
         $newsId = explode("|", $_GET['action']);
+        $newsIdTable = $newsId[1];
         $newsCtlr = new NewsController();
         $news = $newsCtlr->getNews($id);
         require('../view/front/viewNews.php');
