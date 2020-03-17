@@ -21,13 +21,14 @@ if (isset($_GET['action']))
     } 
     else if (preg_match(("showNewsNumber|"), $_GET['action']))
     {
-        $newsId = explode("|", $_GET['action']);
-        $newsIdTable = $newsId[1];
+        $newsIdTable = explode("|", $_GET['action']);
+        $newsId = $newsIdTable[1];
+        return $newsIdTable;
         $newsCtlr = new NewsController();
         $news = $newsCtlr->getNews($id);
         require('../view/front/viewNews.php');
     } 
-    else if
+    else
     {
         echo 'Aucune news n\'a été trouvée';
     }
