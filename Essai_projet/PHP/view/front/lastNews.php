@@ -15,16 +15,13 @@
     }
     </style>
 
+<?php
+
+foreach($news as $showNews)
+{ ?>
         <h1 class="news"><?= $news->title()?></h1>
                 <article class="news"><?= $news->content()?></article>
-
-    <?php
-
-    foreach($news as $showNews)
-    {
-        echo $showNews->content();
-    }
-    ?>
+<?php } ?>
 
     </body>
 </html>
