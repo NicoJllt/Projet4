@@ -5,7 +5,7 @@ require('../controler/NewsController.php');
 
 if (isset($_GET['action']))
 {
-    if ($_GET['action'] == 'showNews')
+    if ($_GET['action'] == 'createNews')
     {
         $newsCtlr = new NewsController();
         $news = $newsCtlr->getLastNews();

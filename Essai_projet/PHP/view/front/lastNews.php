@@ -19,8 +19,8 @@
 
 foreach($news as $showNews)
 { ?>
-        <h1 class="news"><?= $news->title()?></h1>
-                <article class="news"><?= $news->content()?></article>
+        <h1 class="news"><?= $showNews->title()?></h1>
+                <article class="news"><?= $showNews->content()?></article>
 <?php } ?>
 
     </body>

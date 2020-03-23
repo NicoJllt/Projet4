@@ -26,4 +26,10 @@ class NewsController
         $news = $this->manager->getUnique($id);
         return $news;
     }
+
+    function createNews($id)
+    {
+        $news = $this->manager->createNews($id);
+        return $news;
+    }
 }
