@@ -1,5 +1,5 @@
 <?php
-// ROUTEUR
+// ROUTEUR ADMIN
 require('../autoload.php');
 require('../controler/NewsController.php');
 
@@ -8,23 +8,20 @@ if (isset($_GET['action']))
     if ($_GET['action'] == 'createNews')
     {
         $newsCtlr = new NewsController();
-        $news = $newsCtlr->getLastNews();
-        require('../view/front/lastNews.php');
-    } 
-    else if (preg_match(("/showNewsNumber|/"), $_GET['action']))
+        $news = $newsCtlr->createNews();
+        require('../view/back/createNews.php');
+    } else if ($_GET['action'] == 'deleteNews')
     {
-        $newsIdTable = explode("|", $_GET['action']);
-        $newsId = $newsIdTable[1];
         $newsCtlr = new NewsController();
-        $news = $newsCtlr->getNews($newsId);
-        require('../view/front/viewNews.php');
-    } 
-    else
+        $news = $newsCtlr->deleteNews($id);
+        require('../view/back/deleteNews.php');
+    } else if ($_GET['action'] == 'updateNews')
     {
-        echo 'Aucune news n\'a été trouvée';
+        $newsCtlr = new NewsController();
+        $news = $newsCtlr->updateNews($id);
+        require('../view/back/updateNews.php');
     }
-} else {
-    $newsCtlr = new NewsController();
-    $news = $newsCtlr->getLastNews();
-    require('../view/front/lastNews.php');
+} else 
+{
+    echo 'Impossible d\'ajouter une news';
 }
