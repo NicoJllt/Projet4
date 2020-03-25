@@ -10,18 +10,31 @@ if (isset($_GET['action']))
         $newsCtlr = new NewsController();
         $news = $newsCtlr->createNews();
         require('../view/back/createNews.php');
-    } else if ($_GET['action'] == 'deleteNews')
+        echo 'La news a bien été ajoutée.';
+    } else {
+        echo 'Impossible d\'ajouter une news.';
+    }
+    
+    if ($_GET['action'] == 'deleteNews')
     {
         $newsCtlr = new NewsController();
         $news = $newsCtlr->deleteNews($id);
         require('../view/back/deleteNews.php');
-    } else if ($_GET['action'] == 'updateNews')
+        echo 'La news a bien été supprimée.';
+    } else {
+        echo 'Impossible de supprimer cette news.';
+    }
+    
+    if ($_GET['action'] == 'updateNews')
     {
         $newsCtlr = new NewsController();
         $news = $newsCtlr->updateNews($id);
         require('../view/back/updateNews.php');
+        echo 'La news a bien été mise à jour.';
+    } else {
+        echo 'Impossible de mettre à jour cette news.';
     }
-} else 
-{
-    echo 'Impossible d\'ajouter une news';
+
+} else {
+    require('../view/back/createNews.php');
 }
