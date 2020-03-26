@@ -1,4 +1,4 @@
-<form method="get" action="createNews">
+<form method="post" action="admin.php?action=createNews">
     <p>
         <h1>Créer une news</h1>
 

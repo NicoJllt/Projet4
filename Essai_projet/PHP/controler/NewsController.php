@@ -27,10 +27,12 @@ class NewsController
         return $news;
     }
 
-    function createNews()
+    function createNews($title, $content)
     {
-        $news = $this->manager->add();
-        return $news;
+        // instancier news
+        $create = new News(array('title' => $title, 'content' => $content));
+        $this->manager->add($create);
+        return $create;
     }
 
     function deleteNews($id)
