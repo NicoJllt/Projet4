@@ -10,11 +10,11 @@ if (isset($_GET['action']))
         $newsCtlr = new NewsController();
         $news = $newsCtlr->createNews($_POST['title'], $_POST['content']);
         require('index.php');
-        if (true) {
-            echo 'La news a bien été ajoutée.';
-        } else {
-            echo 'Impossible d\'ajouter une news.';
-        }
+        // if (true) {
+        //     echo 'La news a bien été ajoutée.';
+        // } else {
+        //     echo 'Impossible d\'ajouter une news.';
+        // }
     // } else if ($_GET['action'] == 'deleteNews') {
     //     $newsCtlr = new NewsController();
     //     $news = $newsCtlr->deleteNews($id);

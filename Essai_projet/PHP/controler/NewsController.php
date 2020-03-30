@@ -29,7 +29,6 @@ class NewsController
 
     function createNews($title, $content)
     {
-        // instancier news
         $create = new News(array('title' => $title, 'content' => $content));
         $this->manager->add($create);
         return $create;
