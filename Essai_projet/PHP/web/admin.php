@@ -10,6 +10,7 @@ if (isset($_GET['action']))
         $newsCtlr = new NewsController();
         $news = $newsCtlr->createNews($_POST['title'], $_POST['content']);
         require('index.php');
+        require('../view/back/createNews.php');
         // if (true) {
         //     echo 'La news a bien été ajoutée.';
         // } else {

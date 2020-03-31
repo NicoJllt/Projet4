@@ -1,27 +1,17 @@
 <html>
-    <head>
-        <title>Accueil</title>
-    </head>
-    <body>
-    
-    <style>
-    .news {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin-left: 25%;
-        margin-right: 25%;
-    }
-    </style>
+    <div class="blocpage">
+        <head>
+            <link rel="stylesheet" href="../../../CSS/frontend/frontend.css"/>
+            <title id="">Accueil</title>
+        </head>
 
-<?php
-
-foreach($news as $showNews)
-{ ?>
-        <h1 class="news"><?= $showNews->title()?></h1>
-                <article class="news"><?= $showNews->content()?></article>
-<?php } ?>
-
-    </body>
+        <body>
+            <?php
+            foreach($news as $showNews)
+            { ?>
+                    <h1 class="newsTitle"><?= $showNews->title()?></h1>
+                    <article class="newsContent"><?= $showNews->content()?></article>
+            <?php } ?>
+        </body>
+    </div>
 </html>

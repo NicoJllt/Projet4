@@ -1,8 +1,8 @@
-.blocpageAdmin {
-    background-color: brown;
+.blocpage {
+    background-color: aquamarine;
 }
 
-#newsTitleAdmin {
+.newsTitle {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -11,7 +11,7 @@
     margin-right: 25%;
 }
 
-#newsFormContent {
+.newsContent {
     display: flex;
     flex-direction: column;
     align-items: center;
