@@ -19,14 +19,14 @@ if (isset($_POST['title']) && isset($_POST['content'])) {
         <body>
             <form method="post" action="admin.php?action=createNews">
                 <p id="newsFormAdmin">
-                    <h1>Créer une news</h1>
+                    <h1 id="createNewsTitleAdmin">Créer une news</h1>
 
-                        <h2>Titre de la news</h2>
-                            <input type="text" name="title" placeholder="Title" /><br>
+                        <h2 class="createNewsAdmin">Titre de la news</h2>
+                            <input type="text" name="title" placeholder="Title"/><br>
 
-                        <h2>Contenu de la news</h2>
+                        <h2 class="createNewsAdmin">Contenu de la news</h2>
                             <textarea name="content" placeholder="Message"></textarea><br>
-                            <input id="bouton_form" type="submit" value="Create News" />
+                            <input id="bouton_form" type="submit" value="Create News"/>
                 </p>
             </form>
         </body>

@@ -2,7 +2,7 @@
     <div class="blocpage">
         <head>
             <link rel="stylesheet" href="../../../CSS/frontend/frontend.css"/>
-            <title id="">Accueil</title>
+            <title>Accueil</title>
         </head>
 
         <body>
