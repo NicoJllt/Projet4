@@ -62,7 +62,7 @@ class News
       $this->dateNews = $dateNews;
     }
   }
-
+  
   public function setIsNew() {
     return is_null($this->newsId);
   }

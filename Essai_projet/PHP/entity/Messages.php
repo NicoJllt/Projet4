@@ -80,6 +80,14 @@ class Messages
     }
   }
 
+  public function setIsNew() {
+    return is_null($this->messageId);
+  }
+
+  public function setIsValid() {
+    return empty($this->errors);
+  }
+
   // GETTERS //
 
   public function errors()
@@ -120,5 +128,15 @@ class Messages
   public function markedMessage()
   {
     return $this->markedMessage;
+  }
+
+  public function isNew() 
+  {
+    return $this->isNew;
+  }
+
+  public function isValid()
+  {
+    return $this->isValid;
   }
 }

@@ -1,7 +1,7 @@
 <html>
     <div class="blocpage">
         <head>
-            <link rel="stylesheet" href="../../../CSS/frontend/frontend.css"/>
+            <link rel="stylesheet" href="../../CSS/frontend/frontend.css"/>
             <title>Accueil</title>
         </head>
 
