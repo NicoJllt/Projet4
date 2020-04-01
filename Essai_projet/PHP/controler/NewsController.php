@@ -1,9 +1,9 @@
 <?php
 // CONTROLLER DES NEWS
 
-require ('../entity/News.php');
-require ('../model/NewsManager_PDO.php');
-require ('../db/DBFactory.php');
+require_once('../entity/News.php');
+require_once('../model/NewsManager_PDO.php');
+require_once('../db/DBFactory.php');
 
 class NewsController
 {
@@ -30,7 +30,7 @@ class NewsController
     function createNews($title, $content)
     {
         $create = new News(array('title' => $title, 'content' => $content));
-        $this->manager->add($create);
+        $this->manager->save($create);
         return $create;
     }
 

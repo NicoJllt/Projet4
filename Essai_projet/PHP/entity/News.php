@@ -63,6 +63,14 @@ class News
     }
   }
 
+  public function setIsNew() {
+    return is_null($this->newsId);
+  }
+
+  public function setIsValid() {
+    return empty($this->errors);
+  }
+
   // GETTERS //
 
   public function errors()
@@ -88,5 +96,15 @@ class News
   public function dateNews()
   {
     return $this->dateNews;
+  }
+
+  public function isNew()
+  {
+    return $this->isNew;
+  }
+
+  public function isValid()
+  {
+    return $this->isValid;
   }
 }

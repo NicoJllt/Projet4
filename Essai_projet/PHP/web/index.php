@@ -1,7 +1,7 @@
 <?php
 // ROUTEUR
-require('../autoload.php');
-require('../controler/NewsController.php');
+require_once('../autoload.php');
+require_once('../controler/NewsController.php');
 
 if (isset($_GET['action']))
 {

@@ -13,7 +13,7 @@ abstract class NewsManager
   public function save(News $news) {
     if ($news->isValid())
     {
-      $news->isNew() ? $this->add($news) : $this->edit($news);
+      $news->isNew() ? $this->add($news) : $this->update($news);
     }
     else
     {

@@ -11,7 +11,7 @@ abstract class MessagesManager
   public function save(Messages $message) {
     if ($message->isValid())
     {
-      $message->isNew() ? $this->add($message) : $this->edit($message);
+      $message->isNew() ? $this->add($message) : $this->update($message);
     }
     else
     {

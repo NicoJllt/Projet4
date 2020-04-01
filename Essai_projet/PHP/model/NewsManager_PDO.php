@@ -1,7 +1,7 @@
 <?php
 // MANAGER PDO DES NEWS
 
-require ('NewsManager.php');
+require_once('NewsManager.php');
 
 class NewsManager_PDO extends NewsManager
 {

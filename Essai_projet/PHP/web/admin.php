@@ -1,16 +1,18 @@
 <?php
 // ROUTEUR ADMIN
-require('../autoload.php');
-require('../controler/NewsController.php');
+require_once('../autoload.php');
+require_once('../controler/NewsController.php');
 
 if (isset($_GET['action']))
 {
     if ($_GET['action'] == 'createNews')
     {
-        $newsCtlr = new NewsController();
-        $news = $newsCtlr->createNews($_POST['title'], $_POST['content']);
-        require('index.php');
-        require('../view/back/createNews.php');
+        if (isset($_POST['title']) && isset($_POST['content'])) {
+            $newsCtlr = new NewsController();
+            $news = $newsCtlr->createNews($_POST['title'], $_POST['content']);
+            require('index.php');
+        }
+    }
         // if (true) {
         //     echo 'La news a bien été ajoutée.';
         // } else {
@@ -34,7 +36,6 @@ if (isset($_GET['action']))
     //     } else {
     //         echo 'Impossible de mettre à jour cette news.';
     //     }
-    }
 
 } else {
     require('../view/back/createNews.php');

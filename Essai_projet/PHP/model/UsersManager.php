@@ -11,7 +11,7 @@ abstract class UsersManager
   public function save(Users $user) {
     if ($user->isValid())
     {
-      $user->isNew() ? $this->add($user) : $this->edit($user);
+      $user->isNew() ? $this->add($user) : $this->update($user);
     }
     else
     {

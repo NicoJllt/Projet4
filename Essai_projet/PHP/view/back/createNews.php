@@ -1,30 +1,19 @@
-<?php
-if (isset($_POST['title']) && isset($_POST['content'])) {
-
-    header('Location: http://www.nicoju.com/projet4/PHP/web/index.php');
-    exit();
-
-    $news->title($_POST['title']);
-    $news->content($_POST['content']);
-}
-?>
-
 <html>
     <div class="blocpageAdmin">
         <head>
             <link rel="stylesheet" href="../../../CSS/backend/backend.css"/>
-            <title id="newsTitleAdmin">Création d'une news</title>
+            <title>Création d'une news</title>
         </head>
 
         <body>
             <form method="post" action="admin.php?action=createNews">
-                <p id="newsFormAdmin">
-                    <h1 id="createNewsTitleAdmin">Créer une news</h1>
+                <p id="newsForm">
+                    <h1 id="createNewsTitleForm">Créer une news</h1>
 
-                        <h2 class="createNewsAdmin">Titre de la news</h2>
+                        <h2 class="createNewsForm">Titre de la news</h2>
                             <input type="text" name="title" placeholder="Title"/><br>
 
-                        <h2 class="createNewsAdmin">Contenu de la news</h2>
+                        <h2 class="createNewsForm">Contenu de la news</h2>
                             <textarea name="content" placeholder="Message"></textarea><br>
                             <input id="bouton_form" type="submit" value="Create News"/>
                 </p>
