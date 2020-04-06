@@ -12,7 +12,15 @@ if (isset($_GET['action']))
             $news = $newsCtlr->createNews($_POST['title'], $_POST['content']);
             require('index.php');
         }
+    } 
+    else if (preg_match(('/deleteNews|/'), $_GET['action'])) {
+        $newsIdTable = explode("|", $_GET['action']);
+        $newsId = $newsIdTable[1];
+        $newsCtlr = new NewsController();
+        $news = $newsCtlr->deleteNews($newsId);
+        require('../view/back/deleteNews.php');
     }
+    
         // if (true) {
         //     echo 'La news a bien été ajoutée.';
         // } else {

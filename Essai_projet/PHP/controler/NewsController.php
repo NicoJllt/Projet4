@@ -34,9 +34,9 @@ class NewsController
         return $create;
     }
 
-    function deleteNews($id)
+    function deleteNews($newsId)
     {
-        $news = $this->manager->delete($id);
+        $news = $this->manager->delete($newsId);
         return $news;
     }
 
