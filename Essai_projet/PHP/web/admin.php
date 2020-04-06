@@ -18,9 +18,9 @@ if (isset($_GET['action']))
         $newsId = $newsIdTable[1];
         $newsCtlr = new NewsController();
         $news = $newsCtlr->deleteNews($newsId);
-        require('../view/back/deleteNews.php');
+        require('index.php');
     }
-    
+
         // if (true) {
         //     echo 'La news a bien été ajoutée.';
         // } else {
