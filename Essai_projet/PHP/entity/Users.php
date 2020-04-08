@@ -53,11 +53,11 @@ class Users
     }
   }
 
-  public function setIsNew() {
+  public function isNew() {
     return is_null($this->userId);
   }
 
-  public function setIsValid() {
+  public function isValid() {
     return empty($this->errors);
   }
 
@@ -81,15 +81,5 @@ class Users
   public function password()
   {
     return $this->password;
-  }
-
-  public function isNew()
-  {
-    return $this->isNew;
-  }
-
-  public function isValid()
-  {
-    return $this->isValid;
   }
 }

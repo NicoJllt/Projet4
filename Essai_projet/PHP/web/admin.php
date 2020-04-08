@@ -17,7 +17,7 @@ if (isset($_GET['action']))
         $newsIdTable = explode("|", $_GET['action']);
         $newsId = $newsIdTable[1];
         $newsCtlr = new NewsController();
-        $news = $newsCtlr->deleteNews($newsId);
+        $newsCtlr->deleteNews($newsId);
         require('index.php');
     }
 

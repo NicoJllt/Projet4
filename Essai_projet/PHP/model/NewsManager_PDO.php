@@ -32,7 +32,8 @@ class NewsManager_PDO extends NewsManager
 
     public function delete($id)
     {
-        $requete = $this->dataBase->prepare('DELETE FROM news WHERE newsId = ' . (int) $id);
+        $requete = $this->dataBase->prepare('DELETE FROM news WHERE newsId = :id');
+        $requete->bindValue(':id', (int) $id, PDO::PARAM_INT);
         $requete->execute();
     }
 

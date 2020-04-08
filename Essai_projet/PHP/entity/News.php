@@ -62,12 +62,12 @@ class News
       $this->dateNews = $dateNews;
     }
   }
-  
-  public function setIsNew() {
+
+  public function isNew() {
     return is_null($this->newsId);
   }
 
-  public function setIsValid() {
+  public function isValid() {
     return empty($this->errors);
   }
 
@@ -96,15 +96,5 @@ class News
   public function dateNews()
   {
     return $this->dateNews;
-  }
-
-  public function isNew()
-  {
-    return $this->isNew;
-  }
-
-  public function isValid()
-  {
-    return $this->isValid;
   }
 }
