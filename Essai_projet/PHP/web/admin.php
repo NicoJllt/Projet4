@@ -13,13 +13,21 @@ if (isset($_GET['action']))
             require('index.php');
         }
     } 
-    else if (preg_match(('/deleteNews|/'), $_GET['action'])) {
+    else if (preg_match(('/deleteNews/'), $_GET['action'])) {
         $newsIdTable = explode("|", $_GET['action']);
         $newsId = $newsIdTable[1];
         $newsCtlr = new NewsController();
         $newsCtlr->deleteNews($newsId);
         require('index.php');
     }
+    else
+    {
+        require('../view/back/createNews.php');
+    }
+
+} else {
+    require('../view/back/createNews.php');
+}
 
         // if (true) {
         //     echo 'La news a bien été ajoutée.';
@@ -44,7 +52,3 @@ if (isset($_GET['action']))
     //     } else {
     //         echo 'Impossible de mettre à jour cette news.';
     //     }
-
-} else {
-    require('../view/back/createNews.php');
-}

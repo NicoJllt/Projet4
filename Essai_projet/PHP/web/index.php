@@ -10,10 +10,15 @@ if (isset($_GET['action']))
     {
         $newsCtlr = new NewsController();
         $news = $newsCtlr->getLastNews();
-        require('../view/front/lastNews.php');
-    } 
+        
+        if (!empty($news)) {
+            require('../view/front/lastNews.php');
+        } else {
+            echo 'Aucune news n\'a été trouvée';
+        }
+    }
     // si on trouve /showNewsNumber/ dans l'action, on récupère l'id de la news correspondante et on l'affiche
-    else if (preg_match(("/showNewsNumber|/"), $_GET['action']))
+    else if (preg_match(("/showNewsNumber/"), $_GET['action']))
     {
         $newsIdTable = explode("|", $_GET['action']);
         $newsId = $newsIdTable[1];
@@ -21,10 +26,6 @@ if (isset($_GET['action']))
         $news = $newsCtlr->getNews($newsId);
         require('../view/front/viewNews.php');
     } 
-    else
-    {
-        echo 'Aucune news n\'a été trouvée';
-    }
     // on affiche par défaut les dernières news
 } else {
     $newsCtlr = new NewsController();
