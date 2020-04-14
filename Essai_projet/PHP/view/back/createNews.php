@@ -7,16 +7,19 @@
 
         <body>
             <form method="post" action="admin.php?action=createNews">
-                <p id="newsForm">
+                <div id="newsForm">
                     <h1 id="createNewsTitleForm">Créer une news</h1>
 
-                        <h2 class="createNewsForm">Titre de la news</h2>
-                            <input type="text" name="title" placeholder="Title"/><br>
+                    <h2 class="createNewsElementsForm">ID de l'épisode :</h2>
+                        <input type="text" name="id" placeholder="Id"/><br>
 
-                        <h2 class="createNewsForm">Contenu de la news</h2>
-                            <textarea name="content" placeholder="Message"></textarea><br>
-                            <input id="bouton_form" type="submit" value="Create News"/>
-                </p>
+                    <h2 class="createNewsElementsForm">Titre de l'épisode :</h2>
+                        <input type="text" name="title" placeholder="Title"/><br>
+
+                    <h2 class="createNewsElementsForm">Contenu de l'épisode :</h2>
+                        <textarea name="content" placeholder="Message"></textarea><br>
+                        <input id="bouton_form" type="submit" value="Ajouter l'épisode"/>
+                </div>
             </form>
         </body>
     </div>

@@ -1,17 +1,50 @@
 .blocpage {
-    background-color: aquamarine;
+    background-color: white;
+}
+
+#title {
+    text-align: center;
+    font-style: normal;
+    color: #220E0E;
+}
+
+#author {
+    text-align: center;
+    font-style: italic;
+    color: #220E0E;
+}
+
+#newsPreview {
+    display: flex;
+    justify-content: center;
+    background-color: whitesmoke;
+}
+
+.newsTitlePreview {
+    color: black;
+    text-align: center;
+    justify-content: center;
+}
+
+.newsContentPreview {
+    color: darkgray;
+    text-align: left;
+    justify-content: start;
+}
+
+.showNewsButton {
+    border: 1px solid black;
+    justify-content: end;
 }
 
 .newsTitle {
-    align-items: center;
+    color: black;
+    text-align: center;
     justify-content: center;
-    margin-left: 25%;
-    margin-right: 25%;
 }
 
 .newsContent {
-    align-items: center;
+    color: black;
+    text-align: justify;
     justify-content: center;
-    margin-left: 25%;
-    margin-right: 25%;
 }
