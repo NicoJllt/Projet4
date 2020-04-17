@@ -1,9 +1,12 @@
 <html>
+<!-- PAGE D'ACCUEIL -->
     <div class="blocpage">
         <head>
-            <link rel="stylesheet" href="../../CSS/frontend/frontend.css"/>
-
             <title>Billet simple pour l'Alaska</title>
+            <meta charset="utf-8">
+            <link href="../../CSS/frontend/frontend.css" rel="stylesheet" />
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
         </head>
 
         <body>
@@ -14,6 +17,8 @@
             </header>
 
             <section id="newsPreview">
+
+            <div class="col-md-8">
             <?php
                 foreach($news as $showNews)
             { ?>
@@ -21,6 +26,8 @@
                 <article class="newsContentPreview"><?= $showNews->content()?></article>
                 <button class="showNewsButton">Lire la suite</button>
             <?php } ?>
+            </div>
+
             </section>
 
         </body>
