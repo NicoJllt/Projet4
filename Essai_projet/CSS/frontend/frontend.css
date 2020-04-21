@@ -5,7 +5,7 @@
 .row {
     margin-right: -15px;
     margin-left: -15px;
-  }
+}
 
 #summary ul {
     display: flex;
@@ -13,6 +13,13 @@
     position: fixed;
     text-align: center;
     list-style-type: none;
+}
+
+#summary a {
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+    padding: 0 20px 0 20px;
 }
 
 #title {
