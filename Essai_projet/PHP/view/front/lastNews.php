@@ -5,7 +5,7 @@
             <title>Billet simple pour l'Alaska</title>
             <link rel="stylesheet" href="../../CSS/frontend/frontend.css" />
             <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
-            <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+            <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
         </head>
 
         <body>
