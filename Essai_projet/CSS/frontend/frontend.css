@@ -2,6 +2,19 @@
     background-color: white;
 }
 
+.row {
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+
+#summary ul {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    text-align: center;
+    list-style-type: none;
+}
+
 #title {
     text-align: center;
     font-style: normal;
