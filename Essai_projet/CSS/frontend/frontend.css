@@ -99,3 +99,22 @@
     text-align: justify;
     justify-content: center;
 }
+
+#next-page {
+    justify-content: center;
+    z-index: 200;
+}
+
+#next-page ul {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    text-align: center;
+}
+
+#next-page button {
+    z-index: 200;
+    background-color: white;
+    border: 1px solid black;
+    text-decoration: none;
+}

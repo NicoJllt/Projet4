@@ -52,14 +52,19 @@
                     <?php } ?>
                     </section>
                 </section>
+
                 <footer>
-                    <div id="next-page">
-                        <ul>
-                            <li><button>1</button></li>
-                            <li><button>2</button></li>
-                            <li><button>3</button></li>
-                        </ul>
-                    </div>
+                    <section class="row">
+                        <div class="col-lg-12">
+                            <div id="next-page">
+                                <ul>
+                                    <li><button>1</button></li>
+                                    <li><button>2</button></li>
+                                    <li><button>3</button></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
                 </footer>
         </body>
     </div>
