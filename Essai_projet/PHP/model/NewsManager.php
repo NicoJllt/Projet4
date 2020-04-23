@@ -17,7 +17,7 @@ abstract class NewsManager
     }
     else
     {
-      throw new RuntimeException('La news doit être valide pour être enregistrée');
+      throw new RuntimeException('L\'épisode doit être valide pour être enregistré');
     }
   }
 }

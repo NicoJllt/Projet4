@@ -14,7 +14,7 @@ if (isset($_GET['action']))
         if (!empty($news)) {
             require('../view/front/lastNews.php');
         } else {
-            echo 'Aucune news n\'a été trouvée';
+            echo 'Aucun épisode n\'a été trouvé';
         }
     }
     // si on trouve /showNewsNumber/ dans l'action, on récupère l'id de la news correspondante et on l'affiche
