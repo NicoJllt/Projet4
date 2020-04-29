@@ -15,9 +15,9 @@
                     <div class="col-lg-12">
                         <nav id="summary">
                             <ul>
-                                <li><a href="http://www.nicoju.com/projet4/PHP/view/front/synopsis.php" id="synopsis">Synopsis</a></li>
-                                <li><a href="http://www.nicoju.com/projet4/PHP/web/index.php" id="home">Accueil</a></li>
-                                <li><a href="http://nicoju.com/projet4/PHP/view/front/lastEpisodes.php" id="last-episodes">Derniers épisodes</a></li>
+                                <li><a href="../view/front/synopsis.php" id="synopsis">Synopsis</a></li>
+                                <li><a href="index.php" id="home">Accueil</a></li>
+                                <li><a href="../view/front/lastEpisodes.php" id="last-episodes">Derniers épisodes</a></li>
 
                                 <li><input type="search" id="site-search" name="q" aria-label="Search"></li>
                                 <li><button type="submit" id="register">S'inscrire</button></li>
@@ -39,22 +39,21 @@
                 </section>
             </header>
                     
-                <form action="http://www.nicoju.com/projet4/PHP/view/front/viewNews.php" method="get">
                 <section id="news-preview-bloc">
                     <section class="row">
                     <?php
                         foreach($news as $showNews)
                     { ?>
-                        <div class="col-md-offset-1 col-md-5">
-                            <div id="news-preview">
+                        <div class="col-md-6">
+                            <article id="news-preview">
                                 <h1 class="newsTitlePreview"><?= $showNews->title()?></h1>
-                                <article class="newsContentPreview"><?= $showNews->content(substr($content, 0, 250).'...')?></article>
-                            </div>
+                                <p class="newsContentPreview"><?= substr($showNews->content(), 0, 250).'...'?></p>
+                                <a href="../view/front/viewNews.php?/showNewsNumber/id='<?= $showNews->newsId()?>'">LIRE LA SUITE</a>
+                            </article>
                         </div>
                     <?php } ?>
                     </section>
                 </section>
-                </form>
 
                 <footer>
                     <section class="row">

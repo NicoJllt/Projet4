@@ -26,9 +26,9 @@
     text-align: center;
     list-style-type: none;
     background-color: white;
-    opacity: 80%;
     height: 45px;
-    width: 100%;
+    width: 105%;
+    left: -40px;
 }
 
 #summary li {
@@ -62,12 +62,23 @@
 }
 
 #last-episodes {
-    margin-right: 300px;
+    margin-right: 350px;
 }
 
 #register, #connection, #logout, #site-search {
-    margin: 5px 5px 0 0;
+    margin: 5px 6px;
+    border-radius: 10px;
 } 
+
+#register, #connection, #logout {
+    border: none;
+    color: white;
+    background-color: #294f73;
+}
+
+#register:hover, #connection:hover, #logout:hover {
+    background-color: #203e5b;
+}
 
 /* Header : titre et auteur */
 #title-framed {
@@ -94,18 +105,18 @@
     color: white;
 }
 
+/* Section aperçu des épisodes */
 #news-preview-bloc {
-    align-items: center;
+    margin-top: 200px;
 }
 
-/* Section aperçu des épisodes */
 #news-preview {
     background-color: white;
     opacity: 80%;
     border-radius: 10px;
     cursor: pointer;
     height: 400px;
-    margin: 5px;
+    margin: 60px;
     overflow: hidden;
 }
 
