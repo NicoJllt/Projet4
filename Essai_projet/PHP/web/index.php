@@ -18,10 +18,9 @@ if (isset($_GET['action']))
         }
     }
     // si on trouve /showNewsNumber/ dans l'action, on récupère l'id de la news correspondante et on l'affiche
-    else if (preg_match(('/showNewsNumber/'), $_GET['action']))
+    else if (($_GET['action']) === 'showNewsNumber')
     {
-        $newsIdTable = explode("|", $_GET['action']);
-        $newsId = $newsIdTable[1];
+        $newsId = $_GET['id'];
         $newsCtlr = new NewsController();
         $news = $newsCtlr->getNews($newsId);
         require('../view/front/viewNews.php');

@@ -13,9 +13,8 @@ if (isset($_GET['action']))
             require('index.php');
         }
     } 
-    else if (preg_match(('/deleteNews/'), $_GET['action'])) {
-        $newsIdTable = explode("|", $_GET['action']);
-        $newsId = $newsIdTable[1];
+    else if (($_GET['action']) === 'deleteNews') {
+        $newsId = $_POST('id');
         $newsCtlr = new NewsController();
         $newsCtlr->deleteNews($newsId);
         require('index.php');

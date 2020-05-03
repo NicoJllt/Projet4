@@ -48,7 +48,7 @@
                             <article id="news-preview">
                                 <h1 class="newsTitlePreview"><?= $showNews->title()?></h1>
                                 <p class="newsContentPreview"><?= substr($showNews->content(), 0, 250).'...'?></p>
-                                <a href="../view/front/viewNews.php?/showNewsNumber/id='<?= $showNews->newsId()?>'">LIRE LA SUITE</a>
+                                <a href="index.php?action=showNewsNumber&id=<?= $showNews->newsId()?>">LIRE LA SUITE</a>
                             </article>
                         </div>
                     <?php } ?>
