@@ -1,25 +1,43 @@
-<html>
-    <div class="blocpage">
-        <head>
-            <title>Billet simple pour l'Alaska</title>
-            <link rel="stylesheet" href="../../CSS/frontend/frontend.css" />
-            <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
-            <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        </head>
+<!DOCTYPE html>
+<!-- PAGE EPISODE -->
+<html lang="fr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Billet simple pour l'Alaska</title>
+        <link rel="stylesheet" href="../../CSS/frontend/frontend.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">        
+        <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    </head>
 
-        <body>
+    <body>
+        <div class="blocpage">
+            <div class="background-image" >
+                <img src="../image-fond.jpeg" alt="background image"/>
+            </div>            
             <header>
-                <div id="title-framed">
-                    <h1 id="title">Billet simple pour l'Alaska</h1>
-                    <h2 id="author">Par Jean Forteroche</h2>
-                </div>
+                <section class="row">
+                    <div class="col-lg-12">
+                        <nav class="summary">
+                            <ul>
+                                <li><a href="../view/front/synopsis.php" class="synopsis-nav">Synopsis</a></li>
+                                <li><a href="index.php" class="home-nav">Accueil</a></li>
+                                <li><a href="../view/front/lastEpisodes.php" class="last-episodes-nav">Derniers épisodes</a></li>
+
+                                <li><input type="search" class="site-search-nav" name="q" aria-label="Search"></li>
+                                <li><button type="submit" class="register-nav">S'inscrire</button></li>
+                                <li><button type="submit" class="connection-nav">Se connecter</button></li>
+                                <!-- <li><p>Bienvenue <//?= $user->userId()?></p></li> -->
+                                <li><button type="submit" class="logout-nav">Se déconnecter</button></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </section>
             </header>
 
-                <article>  
-                    <h1 class="newsTitle"><?= $news->title()?></h1>
-                    <p class="newsContent"><?= $news->content()?></p> 
-                </article>
-                
-        </body>
-    </div>
+            <article id="episode-page-bloc">  
+                <h1 class="news-title"><?= $news->title()?></h1>
+                <p class="news-content"><?= $news->content()?></p> 
+            </article>
+        </div>
+    </body>
 </html>

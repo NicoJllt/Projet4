@@ -2,11 +2,10 @@
     /* background-image: url("../image-fond"); */
 }
 
-#background-image {
+.background-image {
     position: fixed; 
     top: 0; 
     left: 0; 
-    /* min-width: 1349px; */
     min-height: 100%;
     width: 100%;
     height: auto;
@@ -17,8 +16,8 @@
     margin-left: -15px;
 }
 
-/* Barre de navigation */
-#summary ul {
+/* BARRE DE NAVIGATION */
+.summary ul {
     z-index: 100;
     display: flex;
     flex-direction: row;
@@ -31,14 +30,14 @@
     left: -40px;
 }
 
-#summary li {
+.summary li {
     font-size: 20px;
     background-color: white;
     opacity: 80%;
     border: none;
 }
 
-#summary a {
+.summary a {
     display: block;
     padding: 10px;
     height: 45px;
@@ -46,42 +45,44 @@
     color: black;
 }
 
-#summary a:hover {
+.summary a:hover {
+    text-decoration: none;
     color: black;
     border: 1px solid #2b5175;
 }
 
-#summary a:active {
+.summary a:active {
     color: black;
     border: 1px solid #2b5175;
 }
 
-#summary a:focus {
+.summary a:focus {
     color: black;
     border: 1px solid #2b5175;
     background-color: grey;
 }
 
-#last-episodes-nav {
+.last-episodes-nav {
     margin-right: 350px;
 }
 
-#register-nav, #connection-nav, #logout-nav, #site-search-nav {
+.register-nav, .connection-nav, .logout-nav, .site-search-nav {
     margin: 5px 6px;
     border-radius: 10px;
 } 
 
-#register-nav, #connection-nav, #logout-nav {
+.register-nav, .connection-nav, .logout-nav {
     border: none;
+    padding: 0 5px;
     color: white;
     background-color: #294f73;
 }
 
-#register-nav:hover, #connection-nav:hover, #logout-nav:hover {
+.register-nav:hover, .connection-nav:hover, .logout-nav:hover {
     background-color: #203e5b;
 }
 
-/* Header : titre et auteur */
+/* HEADER : TITRE ET AUTEUR */
 #title-framed {
     border: 4px solid white;
     width: 600px;
@@ -92,21 +93,83 @@
     user-select: none;
 }
 
-#title {
+#book-title {
     font-weight: bold;
     text-align: center;
     font-style: normal;
     color: white;
 }
 
-#author {
+#book-author {
     text-align: center;
     font-style: italic;
     font-size: medium;
     color: white;
 }
 
-/* Section aperçu des épisodes */
+/* PAGE SYNOPSIS */
+#synopsis-bloc {
+    position: relative;
+    text-align: center;
+    margin: 0 80px 20px 80px;
+
+    animation-fill-mode: forwards;
+    animation-duration: 1.5s;
+    animation-name: slidein-synopsis;
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-duration: 1.5s;
+    -webkit-animation-name: slidein-synopsis;
+    -moz-animation-fill-mode: forwards;
+    -moz-animation-duration: 1.5s;
+    -moz-animation-name: slidein-synopsis;
+}
+
+@keyframes slidein-synopsis {
+    from {
+        margin-top: 200px;
+    }
+
+    to {
+        margin-top: 0;
+    }
+}
+
+@-webkit-keyframes slidein-synopsis {
+    from {
+        margin-top: 200px;
+    }
+
+    to {
+        margin-top: 0;
+    }
+}
+
+@-moz-keyframes slidein-synopsis {
+    from {
+        margin-top: 200px;
+    }
+
+    to {
+        margin-top: 0;
+    }
+}
+
+#synopsis-content {
+    background-color: white;
+    opacity: 80%;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    padding: 10px;
+}
+
+#synopsis-biography {
+    background-color: white;
+    opacity: 80%;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+/* PAGE APERCU DES EPISODES */
 #news-preview-bloc {
     margin-top: 200px;
 
@@ -127,7 +190,7 @@
     }
 
     to {
-        margin-top: 150px;
+        margin-top: 0;
     }
 }
 
@@ -137,7 +200,7 @@
     }
 
     to {
-        margin-top: 150px;
+        margin-top: 0;
     }
 }
 
@@ -147,7 +210,7 @@
     }
 
     to {
-        margin-top: 150px;
+        margin-top: 0;
     }
 }
 
@@ -165,13 +228,13 @@
     opacity: 90%;
 }
 
-.newsTitlePreview {
+.news-title-preview {
     color: black;
     text-align: center;
     overflow: hidden;
 }
 
-.newsContentPreview {
+.news-content-preview {
     color: black;
     opacity: 80%;
     text-align: left;
@@ -180,18 +243,29 @@
     margin: 50px 10px;
 }
 
-.newsTitle {
-    color: black;
-    background-color: white;
-    text-align: center;
-    justify-content: center;
+/* PAGE EPISODE */
+#episode-page-bloc {
+    display: flex;
+    flex-direction: column;
+    margin: 100px 100px 10px 100px;
 }
 
-.newsContent {
+.news-title {
+    z-index: 50;
+    text-transform: uppercase;
+    color: white;
+    text-align: center;
+}
+
+.news-content {
+    z-index: 50;
+    background-color: rgba(255, 255, 255, 0.9);
     color: black;
     background-color: white;
     text-align: justify;
     justify-content: center;
+    margin: 10px 100px;
+    padding: 200px;
 }
 
 /* Footer : Pagination */
@@ -231,26 +305,4 @@
 #next-page button:focus {
     background-color: #B1B1B1;
     color: white;
-}
-
-/* Page Synopsis */
-#synopsis-page {
-    position: relative;
-    text-align: center;
-    margin: 0 50px;
-}
-
-#synopsis-content {
-    background-color: white;
-    opacity: 80%;
-    border-radius: 10px;
-    margin-bottom: 30px;
-    padding: 10px;
-}
-
-#biography {
-    background-color: white;
-    opacity: 80%;
-    border-radius: 10px;
-    padding: 10px;
 }

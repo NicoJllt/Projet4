@@ -1,13 +1,13 @@
-.blocpage-form-admin {
-    border: 2px solid red;
+.blocpage {
+    /* border: 2px solid red; */
 }
 
 #news-form-bloc {
     display: flex;
     flex-direction: column;
-    z-index: 100;
     align-self: center;
-    margin: 80px 200px;
+    margin: 80px 200px 40px 200px;
+    border: 1px solid red;
     background-color: rgba(255, 255, 255, 0.8);
     padding: 10px;
 }
@@ -24,4 +24,15 @@
 
 #button-form {
     text-align: center;
+}
+
+#button-form button {
+    border: none;
+    padding: 5px;
+    color: white;
+    background-color: #5f9bd4;
+}
+
+#button-form button:hover {
+    background-color: #3577b4;
 }

@@ -1,30 +1,34 @@
-<html>
+<!DOCTYPE html>
 <!-- PAGE DE CREATION D'UN EPISODE -->
+<html lang="fr">
     <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title>Création d'un épisode</title>
         <link rel="stylesheet" href="../../CSS/frontend/frontend.css" />
         <link rel="stylesheet" href="../../CSS/backend/backend.css"/>
-        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">        
         <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
     </head>
 
     <body>
-        <div class="blocpage-form-admin">
-            <header>
-                <img src="../image-fond.jpeg" id="background-image" class="background-image" alt="background image"/>
+        <div class="blocpage">
+            <div class="background-image" >
+                <img src="../image-fond.jpeg" alt="background image"/>
+            </div>   
+            <header>             
                 <section class="row">
                     <div class="col-lg-12">
-                        <nav id="summary">
+                        <nav class="summary">
                             <ul>
-                                <li><a href="../view/front/synopsis.php" id="synopsis-nav">Synopsis</a></li>
-                                <li><a href="index.php" id="home-nav">Accueil</a></li>
-                                <li><a href="../view/front/lastEpisodes.php" id="last-episodes-nav">Derniers épisodes</a></li>
+                                <li><a href="../view/front/synopsis.php" class="synopsis-nav">Synopsis</a></li>
+                                <li><a href="index.php" class="home-nav">Accueil</a></li>
+                                <li><a href="../view/front/lastEpisodes.php" class="last-episodes-nav">Derniers épisodes</a></li>
 
-                                <li><input type="search" id="site-search-nav" name="q" aria-label="Search"></li>
-                                <li><button type="submit" id="register-nav">S'inscrire</button></li>
-                                <li><button type="submit" id="connection-nav">Se connecter</button></li>
+                                <li><input type="search" class="site-search-nav" name="q" aria-label="Search"></li>
+                                <li><button type="submit" class="register-nav">S'inscrire</button></li>
+                                <li><button type="submit" class="connection-nav">Se connecter</button></li>
                                 <!-- <li><p>Bienvenue <//?= $user->userId()?></p></li> -->
-                                <li><button type="submit" id="logout-nav">Se déconnecter</button></li>
+                                <li><button type="submit" class="logout-nav">Se déconnecter</button></li>
                             </ul>
                         </nav>
                     </div>
