@@ -15,15 +15,15 @@
                     <div class="col-lg-12">
                         <nav id="summary">
                             <ul>
-                                <li><a href="../view/front/synopsis.php" id="synopsis">Synopsis</a></li>
-                                <li><a href="index.php" id="home">Accueil</a></li>
-                                <li><a href="../view/front/lastEpisodes.php" id="last-episodes">Derniers épisodes</a></li>
+                                <li><a href="../view/front/synopsis.php" id="synopsis-nav">Synopsis</a></li>
+                                <li><a href="index.php" id="home-nav">Accueil</a></li>
+                                <li><a href="../view/front/lastEpisodes.php" id="last-episodes-nav">Derniers épisodes</a></li>
 
-                                <li><input type="search" id="site-search" name="q" aria-label="Search"></li>
-                                <li><button type="submit" id="register">S'inscrire</button></li>
-                                <li><button type="submit" id="connection">Se connecter</button></li>
+                                <li><input type="search" id="site-search-nav" name="q" aria-label="Search"></li>
+                                <li><button type="submit" id="register-nav">S'inscrire</button></li>
+                                <li><button type="submit" id="connection-nav">Se connecter</button></li>
                                 <!-- <li><p>Bienvenue <//?= $user->userId()?></p></li> -->
-                                <li><button type="submit" id="logout">Se déconnecter</button></li>
+                                <li><button type="submit" id="logout-nav">Se déconnecter</button></li>
                             </ul>
                         </nav>
                     </div>

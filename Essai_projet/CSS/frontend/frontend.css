@@ -47,36 +47,37 @@
 }
 
 #summary a:hover {
-    color: white;
-    background-color: #2b5175;
+    color: black;
+    border: 1px solid #2b5175;
 }
 
 #summary a:active {
-    color: white;
-    background-color: #2b5175;
+    color: black;
+    border: 1px solid #2b5175;
 }
 
 #summary a:focus {
     color: black;
-    background-color: #2b5175;
+    border: 1px solid #2b5175;
+    background-color: grey;
 }
 
-#last-episodes {
+#last-episodes-nav {
     margin-right: 350px;
 }
 
-#register, #connection, #logout, #site-search {
+#register-nav, #connection-nav, #logout-nav, #site-search-nav {
     margin: 5px 6px;
     border-radius: 10px;
 } 
 
-#register, #connection, #logout {
+#register-nav, #connection-nav, #logout-nav {
     border: none;
     color: white;
     background-color: #294f73;
 }
 
-#register:hover, #connection:hover, #logout:hover {
+#register-nav:hover, #connection-nav:hover, #logout-nav:hover {
     background-color: #203e5b;
 }
 
@@ -108,6 +109,46 @@
 /* Section aperçu des épisodes */
 #news-preview-bloc {
     margin-top: 200px;
+
+    animation-fill-mode: forwards;
+    animation-duration: 1.5s;
+    animation-name: slidein-episods;
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-duration: 1.5s;
+    -webkit-animation-name: slidein-episods;
+    -moz-animation-fill-mode: forwards;
+    -moz-animation-duration: 1.5s;
+    -moz-animation-name: slidein-episods;
+}
+
+@keyframes slidein-episods {
+    from {
+        margin-top: 200px;
+    }
+
+    to {
+        margin-top: 150px;
+    }
+}
+
+@-webkit-keyframes slidein-episods {
+    from {
+        margin-top: 200px;
+    }
+
+    to {
+        margin-top: 150px;
+    }
+}
+
+@-moz-keyframes slidein-episods {
+    from {
+        margin-top: 200px;
+    }
+
+    to {
+        margin-top: 150px;
+    }
 }
 
 #news-preview {
