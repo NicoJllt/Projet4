@@ -49,11 +49,12 @@
                     foreach($news as $showNews)
                 { ?>
                     <div class="col-md-6">
-                        <article id="news-preview">
-                            <h1 class="news-title-preview"><?= $showNews->title()?></h1>
-                            <p class="news-content-preview"><?= substr($showNews->content(), 0, 250).'...'?></p>
-                            <p class="news-content-link"><a href="index.php?action=showNewsNumber&id=<?= $showNews->newsId()?>">LIRE LA SUITE</a></p>
-                        </article>
+                        <a href="index.php?action=showNewsNumber&id=<?= $showNews->newsId()?>">
+                            <article id="news-preview">
+                                <h1 class="news-title-preview"><?= $showNews->title()?></h1>
+                                <p class="news-content-preview"><?= substr($showNews->content(), 0, 250).'...'?></p>
+                            </article>
+                        </a>
                     </div>
                 <?php } ?>
                 </section>

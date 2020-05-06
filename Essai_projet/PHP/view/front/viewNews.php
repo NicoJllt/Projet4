@@ -34,10 +34,15 @@
                 </section>
             </header>
 
-            <article id="episode-page-bloc">  
-                <h1 class="news-title"><?= $news->title()?></h1>
-                <p class="news-content"><?= $news->content()?></p> 
-            </article>
+            <section class="row">
+                <div class="col-lg-12">
+                    <article id="episode-page-bloc">  
+                        <h1 class="news-title"><?= $news->title()?></h1>
+                        <p class="news-content"><?= $news->content()?></p>
+                        <button class="next-episode-button">Épisode suivant</button>
+                    </article>
+                </div>
+            </section>
         </div>
     </body>
 </html>

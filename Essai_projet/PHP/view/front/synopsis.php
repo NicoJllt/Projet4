@@ -43,16 +43,25 @@
                 </div>
             </section>
 
+            
             <section id="synopsis-bloc">
-                <div id="synopsis-content">
-                    <h1>Résumé de l'histoire</h1>
-                    <p>CONTENU</p>
-                </div>
+                <section class="row">
+                    <div class="col-lg-12">
+                        <div id="synopsis-content">
+                            <h1>Résumé de l'histoire</h1>
+                            <p>CONTENU</p>
+                        </div>
+                    </div>
+                </section>
 
-                <div id="synopsis-biography">
-                    <h1>Biographie de l'auteur</h1>
-                    <p>Bonjour, je suis Jean Forteroche, écrivain.</p>
-                </div>
+                <section class="row">
+                    <div class="col-lg-12">
+                        <div id="synopsis-biography">
+                            <h1>Biographie de l'auteur</h1>
+                            <p>Bonjour, je suis Jean Forteroche, écrivain.</p>
+                        </div>
+                    </div>
+                </section>
             </section>
         </div>
     </body>
