@@ -11,9 +11,7 @@
 
     <body>
         <div class="blocpage">
-            <div class="background-image" >
-                <img src="../image-fond.jpeg" alt="background image"/>
-            </div>            
+            <img class="background-image" src="../image-fond.jpeg" alt="background image"/>
             <header>
                 <section class="row">
                     <div class="col-lg-12">

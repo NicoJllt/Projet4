@@ -14,9 +14,7 @@
 
     <body>
         <div class="blocpage">
-            <div class="background-image" >
-                <img src="../image-fond.jpeg" alt="background image"/>
-            </div>   
+            <img class="background-image" src="../image-fond.jpeg" alt="background image"/>
             <header>             
                 <section class="row">
                     <div class="col-lg-12">
@@ -50,7 +48,7 @@
                                 <textarea name="content" rows="8" cols="30" placeholder="Contenu de l'épisode"></textarea><br>
 
                             <div id="button-form">
-                                <button type="submit" value="Annuler">Annuler</button>
+                                <button type="reset" value="Annuler">Annuler</button>
                                 <button type="submit" value="Ajouter l'épisode">Ajouter l'épisode</button>
                             </div>
                         </div>

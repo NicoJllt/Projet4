@@ -11,9 +11,9 @@
 
     <body>
         <div class="blocpage">
-            <div class="background-image" >
-                <img src="../image-fond.jpeg" alt="background image"/>
-            </div>
+
+                    <img class="background-image" src="../image-fond.jpeg" alt="background image"/>
+
             <header>
                 <section class="row">
                     <div class="col-lg-12">
@@ -50,9 +50,11 @@
                 { ?>
                     <div class="col-md-6">
                         <a href="index.php?action=showNewsNumber&id=<?= $showNews->newsId()?>">
-                            <article id="news-preview">
-                                <h1 class="news-title-preview"><?= $showNews->title()?></h1>
-                                <p class="news-content-preview"><?= substr($showNews->content(), 0, 250).'...'?></p>
+                            <article class="news-preview">
+                                <div class="news-preview-marge">
+                                    <h1 class="news-title-preview"><?= $showNews->title()?></h1>
+                                    <p class="news-content-preview"><?= substr($showNews->content(), 0, 250).'...'?></p>
+                                </div>
                             </article>
                         </a>
                     </div>
