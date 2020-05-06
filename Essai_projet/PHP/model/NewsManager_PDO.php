@@ -63,10 +63,18 @@ class NewsManager_PDO extends NewsManager
         return $requete->fetchAll();
     }
 
+    public function firstNews()
+    {
+        // Requête de récupération des 10 premières news publiées classées dans l'ordre ascendant
+        $requete = $this->dataBase->query('SELECT * FROM news ORDER BY dateNews ASC LIMIT 10');
+        $requete->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'News');
+        return $requete->fetchAll();
+    }
+
     public function lastNews()
     {
-        // Requête de récupération des 10 dernières news publiées classées dans l'ordre anti-chronologique
-        $requete = $this->dataBase->query('SELECT * FROM news ORDER BY dateNews ASC LIMIT 10');
+        // Requête de récupération des 2 dernières news publiées classées dans l'ordre descendant
+        $requete = $this->dataBase->query('SELECT * FROM news ORDER BY dateNews DESC LIMIT 2');
         $requete->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'News');
         return $requete->fetchAll();
     }

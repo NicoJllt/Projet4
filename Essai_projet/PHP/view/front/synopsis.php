@@ -21,7 +21,7 @@
                             <ul>
                                 <li><a href="synopsis.php" class="synopsis-nav">Synopsis</a></li>
                                 <li><a href="../../web/index.php" class="home-nav">Accueil</a></li>
-                                <li><a href="../view/front/lastEpisodes.php" class="last-episodes-nav">Derniers épisodes</a></li>
+                                <li><a href="../../web/index.php" class="last-episodes-nav">Derniers épisodes</a></li>
 
                                 <li><input type="search" class="site-search-nav" name="q" aria-label="Search"></li>
                                 <li><button type="submit" class="register-nav">S'inscrire</button></li>

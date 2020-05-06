@@ -15,6 +15,12 @@ class NewsController
         $this->manager = new NewsManager_PDO($db);
     }
 
+    function getFirstNews() 
+    {
+        $news = $this->manager->firstNews();
+        return $news;
+    }
+
     function getLastNews() 
     {
         $news = $this->manager->lastNews();

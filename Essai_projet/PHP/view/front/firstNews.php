@@ -21,7 +21,7 @@
                             <ul>
                                 <li><a href="../view/front/synopsis.php" class="synopsis-nav">Synopsis</a></li>
                                 <li><a href="index.php" class="home-nav">Accueil</a></li>
-                                <li><a href="index.php" class="last-episodes-nav">Derniers épisodes</a></li>
+                                <li><a href="index.php?action=showLastNews" class="last-episodes-nav">Derniers épisodes</a></li>
 
                                 <li><input type="search" class="site-search-nav" name="q" aria-label="Search"></li>
                                 <li><button type="submit" class="register-nav">S'inscrire</button></li>
@@ -63,6 +63,17 @@
             </section>
 
             <footer>
+                <section class="row">
+                    <div class="col-lg-12">
+                        <div id="next-page">
+                            <ul>
+                                <li><button>1</button></li>
+                                <li><button>2</button></li>
+                                <li><button>3</button></li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
             </footer>
         </div>
     </body>
