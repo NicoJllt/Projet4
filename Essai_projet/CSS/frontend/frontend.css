@@ -83,7 +83,7 @@
 }
 
 /* HEADER : TITRE ET AUTEUR */
-#title-framed {
+.title-framed {
     border: 4px solid white;
     width: 600px;
     overflow: hidden;
@@ -93,14 +93,14 @@
     user-select: none;
 }
 
-#book-title {
+.book-title {
     font-weight: bold;
     text-align: center;
     font-style: normal;
     color: white;
 }
 
-#book-author {
+.book-author {
     text-align: center;
     font-style: italic;
     font-size: medium;
@@ -169,8 +169,8 @@
     padding: 10px;
 }
 
-/* PAGE APERCU DES EPISODES */
-#news-preview-bloc {
+/* PAGE APERCU DES PREMIERS EPISODES - ACCUEIL */
+.news-preview-bloc {
     /* position: relative; */
     display: flex;
     flex-direction: row;
@@ -219,7 +219,7 @@
     }
 }
 
-#news-preview-bloc a {
+.news-preview-bloc a {
     position: relative;
     left: 75px;
     width: 500px;
@@ -242,7 +242,7 @@
     position: relative;
 }
 
-#news-preview:hover {
+.news-preview:hover {
     opacity: 90%;
 }
 

@@ -19,7 +19,7 @@ if (isset($_GET['action']))
     }
 
     // S'il y a une action et si l'action est "showLastNews" : on affiche les dernières news
-    if ($_GET['action'] == 'showLastNews')
+    else if ($_GET['action'] == 'showLastNews')
     {
         $newsCtlr = new NewsController();
         $news = $newsCtlr->getLastNews();

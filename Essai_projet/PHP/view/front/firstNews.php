@@ -3,7 +3,7 @@
 <html lang="fr">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>Billet simple pour l'Alaska</title>
+        <title>Les derniers épisodes</title>
         <link rel="stylesheet" href="../../CSS/frontend/frontend.css" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">        
         <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -12,7 +12,7 @@
     <body>
         <div class="blocpage">
 
-                    <img class="background-image" src="../image-fond.jpeg" alt="background image"/>
+            <img class="background-image" src="../image-fond.jpeg" alt="background image"/>
 
             <header>
                 <section class="row">
@@ -36,14 +36,14 @@
 
             <section class="row">
                 <div class="col-lg-12">
-                    <div id="title-framed">
-                        <h1 id="book-title">Billet simple pour l'Alaska</h1>
-                        <h2 id="book-author">Par Jean Forteroche</h2>
+                    <div class="title-framed">
+                        <h1 class="book-title">Billet simple pour l'Alaska</h1>
+                        <h2 class="book-author">Par Jean Forteroche</h2>
                     </div>
                 </div>
             </section>
                 
-            <section id="news-preview-bloc">
+            <section class="news-preview-bloc">
                 <section class="row">
                 <?php
                     foreach($news as $showNews)
@@ -67,9 +67,8 @@
                     <div class="col-lg-12">
                         <div id="next-page">
                             <ul>
-                                <li><button>1</button></li>
-                                <li><button>2</button></li>
-                                <li><button>3</button></li>
+                                <li><button>Épisodes précédents</button></li>
+                                <li><button>Épisodes suivants</button></li>
                             </ul>
                         </div>
                     </div>

@@ -12,7 +12,7 @@
     <body>
         <div class="blocpage">
 
-                    <img class="background-image" src="../image-fond.jpeg" alt="background image"/>
+            <img class="background-image" src="../image-fond.jpeg" alt="background image"/>
 
             <header>
                 <section class="row">
@@ -21,7 +21,7 @@
                             <ul>
                                 <li><a href="../view/front/synopsis.php" class="synopsis-nav">Synopsis</a></li>
                                 <li><a href="index.php" class="home-nav">Accueil</a></li>
-                                <li><a href="index.php" class="last-episodes-nav">Derniers épisodes</a></li>
+                                <li><a href="index.php?action=showLastNews" class="last-episodes-nav">Derniers épisodes</a></li>
 
                                 <li><input type="search" class="site-search-nav" name="q" aria-label="Search"></li>
                                 <li><button type="submit" class="register-nav">S'inscrire</button></li>
@@ -36,14 +36,14 @@
 
             <section class="row">
                 <div class="col-lg-12">
-                    <div id="title-framed">
-                        <h1 id="book-title">Billet simple pour l'Alaska</h1>
-                        <h2 id="book-author">Par Jean Forteroche</h2>
+                    <div class="title-framed">
+                        <h1 class="book-title">Billet simple pour l'Alaska</h1>
+                        <h2 class="book-author">Par Jean Forteroche</h2>
                     </div>
                 </div>
             </section>
                 
-            <section id="news-preview-bloc">
+            <section class="news-preview-bloc">
                 <section class="row">
                 <?php
                     foreach($news as $showNews)

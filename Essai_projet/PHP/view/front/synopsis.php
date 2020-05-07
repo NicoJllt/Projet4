@@ -3,7 +3,7 @@
 <html lang="fr">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>Synopsis</title>
+        <title>Synopsis & Biographie</title>
         <link rel="stylesheet" href="../../../CSS/frontend/frontend.css" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">        
         <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -21,7 +21,7 @@
                             <ul>
                                 <li><a href="synopsis.php" class="synopsis-nav">Synopsis</a></li>
                                 <li><a href="../../web/index.php" class="home-nav">Accueil</a></li>
-                                <li><a href="../../web/index.php" class="last-episodes-nav">Derniers épisodes</a></li>
+                                <li><a href="../../web/index.php?action=showLastNews" class="last-episodes-nav">Derniers épisodes</a></li>
 
                                 <li><input type="search" class="site-search-nav" name="q" aria-label="Search"></li>
                                 <li><button type="submit" class="register-nav">S'inscrire</button></li>

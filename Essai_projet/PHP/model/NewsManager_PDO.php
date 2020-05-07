@@ -79,15 +79,15 @@ class NewsManager_PDO extends NewsManager
         return $requete->fetchAll();
     }
 
-    public function searchByDate($date)
+    public function searchByName($title)
     {
         // Une requête avec des paramètres : on utilise une requête préparée
-        $requete = $this->dataBase->prepare('SELECT * FROM news WHERE dateNews LIKE :dateNews ORDER BY dateNews ASC');
+        $requete = $this->dataBase->prepare('SELECT * FROM news WHERE title LIKE :title');
         // On associe les valeurs aux paramètres de la requête
-        $requete->bindValue(':dateNews', '%' . $date . '%', PDO::SUNFUNCS_RET_TIMESTAMP);
+        $requete->bindValue(':title', '%' . $title . '%', PDO::PARAM_STR);
         // On exécute la requête
         $requete->execute();
-        // On associe un objet de type Cities à chaque réponse
+        // On associe un objet de type Name à chaque réponse
         $requete->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'News');
         // On collecte et retourne les réponses
         return $requete->fetchAll();
