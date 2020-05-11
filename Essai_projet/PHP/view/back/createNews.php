@@ -14,8 +14,8 @@
 
     <body>
         <div class="blocpage">
-            <img class="background-image" src="../image-fond.jpeg" alt="background image"/>
-            <header>             
+            <header>     
+
                 <section class="row">
                     <div class="col-lg-12">
                         <nav class="summary">

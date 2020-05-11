@@ -11,9 +11,6 @@
 
     <body>
         <div class="blocpage">
-
-            <img class="background-image" src="../image-fond.jpeg" alt="background image"/>
-
             <header>
                 <section class="row">
                     <div class="col-lg-12">
@@ -26,7 +23,6 @@
                                 <li><input type="search" class="site-search-nav" name="q" aria-label="Search"></li>
                                 <li><button type="submit" class="register-nav">S'inscrire</button></li>
                                 <li><button type="submit" class="connection-nav">Se connecter</button></li>
-                                <!-- <li><p>Bienvenue <//?= $user->userId()?></p></li> -->
                                 <li><button type="submit" class="logout-nav">Se déconnecter</button></li>
                             </ul>
                         </nav>
@@ -42,7 +38,7 @@
                     </div>
                 </div>
             </section>
-                
+
             <section class="news-preview-bloc">
                 <section class="row">
                 <?php
@@ -67,8 +63,8 @@
                     <div class="col-lg-12">
                         <div id="next-page">
                             <ul>
-                                <li><button>Épisodes précédents</button></li>
-                                <li><button>Épisodes suivants</button></li>
+                                <li><button id="previous-episodes-button">Épisodes précédents</button></li>
+                                <li><button id="next-episodes-button">Épisodes suivants</button></li>
                             </ul>
                         </div>
                     </div>
