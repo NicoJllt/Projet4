@@ -45,6 +45,22 @@ class NewsController
         $this->manager->delete($id);
     }
 
+    function getPreviousPage($nb, $offset)
+    {
+        $nb--;
+        $offset =- 10;
+        $news = $this->manager->changePage($nb, $offset);
+        return $news;
+    }
+
+    function getNextPage($nb, $offset)
+    {
+        $nb++;
+        $offset =+ 10;
+        $news = $this->manager->changePage($nb, $offset);
+        return $news;
+    }
+
     // function updateNews($id)
     // {
     //     $news = $this->manager->update($id);

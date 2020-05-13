@@ -31,7 +31,7 @@ if (isset($_GET['action']))
         }
     }
 
-    // si on trouve /showNewsNumber/ dans l'action, on récupère l'id de la news correspondante et on l'affiche
+    // si on trouve showNewsNumber dans l'action, on récupère l'id de la news correspondante et on l'affiche
     else if (($_GET['action']) === 'showNewsNumber')
     {
         $newsId = $_GET['id'];
@@ -39,6 +39,22 @@ if (isset($_GET['action']))
         $news = $newsCtlr->getNews($newsId);
         require('../view/front/viewNews.php');
     } 
+
+    // si on trouve l'action previousPage on affiche la page précédente
+    else if (($_GET['action']) === 'previousPage')
+    {
+        $newsCtlr = new NewsController();
+        $news = $newsCtlr->getPreviousPage($nb, $offset); 
+        require('../view/front/firstNews.php');
+    }
+
+    // si on trouve l'action nextPage on affiche la page suivante
+    else if (($_GET['action']) === 'nextPage') {
+        $newsCtlr = new NewsController();
+        $news = $newsCtlr->getNextPage($nb, $offset); 
+        require('../view/front/firstNews.php');
+    }
+
     // on affiche par défaut les dernières news
 } else {
     $newsCtlr = new NewsController();

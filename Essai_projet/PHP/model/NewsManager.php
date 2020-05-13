@@ -6,9 +6,15 @@ abstract class NewsManager
 
   abstract protected function update(News $news);
 
-  abstract public function delete($id);
+  abstract protected function delete($id);
 
   abstract public function getUnique($id);
+
+  abstract public function firstNews();
+
+  abstract public function lastNews();
+
+  abstract public function changePage($nb, $offset);
 
   public function save(News $news) {
     if ($news->isValid())

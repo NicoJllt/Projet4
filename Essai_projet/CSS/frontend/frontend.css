@@ -264,6 +264,44 @@
     margin: 50px 10px;
 }
 
+/* Footer : Pagination */
+#change-page {
+    justify-content: center;
+    z-index: 200;
+}
+
+#change-page ul {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    text-align: center;
+    justify-content: center;
+}
+
+#change-page button {
+    z-index: 200;
+    color: black;
+    background-color: white;
+    padding: 5px 10px;
+    text-decoration: none;
+    border: none;
+    border-radius: 10px;
+}
+
+#change-page button:hover {
+    border: 1px solid black;
+    background-color: gainsboro;
+}
+
+#change-page button:active {
+    border: 1px solid black;
+    background-color: grey;
+}
+
+.previous-episodes-button {
+    margin-right: 10px;
+}
+
 /* PAGE EPISODE */
 #episode-page-bloc {
     position: relative;
@@ -292,43 +330,4 @@
     text-align: right;
     margin: 0 100px 0 920px;
     border-radius: 5px;
-}
-
-/* Footer : Pagination */
-#next-page {
-    justify-content: center;
-    z-index: 200;
-}
-
-#next-page ul {
-    display: flex;
-    flex-direction: row;
-    list-style-type: none;
-    text-align: center;
-    justify-content: center;
-}
-
-#next-page button {
-    z-index: 200;
-    color: black;
-    background-color: white;
-    padding: 5px 10px;
-    text-decoration: none;
-    border: none;
-}
-
-#next-page button:hover {
-    font-weight: bold;
-    background-color: #B1B1B1;
-    color: white;
-}
-
-#next-page button:active {
-    background-color: #C7C7C7;
-    color: white;
-}
-
-#next-page button:focus {
-    background-color: #B1B1B1;
-    color: white;
 }

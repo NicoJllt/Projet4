@@ -61,10 +61,10 @@
             <footer>
                 <section class="row">
                     <div class="col-lg-12">
-                        <div id="next-page">
+                        <div id="change-page">
                             <ul>
-                                <li><button id="previous-episodes-button">Épisodes précédents</button></li>
-                                <li><button id="next-episodes-button">Épisodes suivants</button></li>
+                                <li><a href="index.php?action=previousPage&offset=10"><button class="previous-episodes-button">Épisodes précédents</button></a></li>
+                                <li><a href="index.php?action=nextPage&offset=10"><button class="next-episodes-button">Épisodes suivants</button></a></li>
                             </ul>
                         </div>
                     </div>

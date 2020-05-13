@@ -32,8 +32,8 @@ class NewsManager_PDO extends NewsManager
 
     public function delete($id)
     {
-        $requete = $this->dataBase->prepare('DELETE FROM news WHERE newsId = :id');
-        $requete->bindValue(':id', (int) $id, PDO::PARAM_INT);
+        $requete = $this->dataBase->prepare('DELETE FROM news WHERE newsId = :newsId');
+        $requete->bindValue(':newsId', (int) $id, PDO::PARAM_INT);
         $requete->execute();
     }
 
@@ -77,6 +77,14 @@ class NewsManager_PDO extends NewsManager
         $requete = $this->dataBase->query('SELECT * FROM news ORDER BY dateNews DESC LIMIT 2');
         $requete->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'News');
         return $requete->fetchAll();
+    }
+
+    public function changePage($nb, $offset) {
+        // Requête de récupération des 10 épisodes suivants classées dans l'ordre ascendant
+        $requete = $this->dataBase->prepare('SELECT * FROM news ORDER BY dateNews ASC LIMIT 10, 10');
+        $requete->bindValue(':nb', (int) $nb, PDO::PARAM_INT);
+        $requete->bindValue(':offset', (int) $offset, PDO::PARAM_INT);
+        $requete->execute();
     }
 
     public function searchByName($title)
