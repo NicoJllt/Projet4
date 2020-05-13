@@ -55,6 +55,12 @@ if (isset($_GET['action']))
         require('../view/front/firstNews.php');
     }
 
+    // Si l'action est "synopsis" : on affiche la page synopsis
+    else if ($_GET['action'] == 'synopsis')
+    {
+        require('../view/front/synopsis.php');
+    }
+
     // on affiche par défaut les dernières news
 } else {
     $newsCtlr = new NewsController();
