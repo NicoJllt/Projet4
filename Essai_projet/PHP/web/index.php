@@ -38,7 +38,7 @@ if (isset($_GET['action']))
         $newsCtlr = new NewsController();
         $news = $newsCtlr->getNews($newsId);
         require('../view/front/viewNews.php');
-    } 
+    }
 
     // si on trouve l'action previousPage on affiche la page précédente
     else if (($_GET['action']) === 'previousPage')
@@ -55,8 +55,21 @@ if (isset($_GET['action']))
         require('../view/front/firstNews.php');
     }
 
+    // si on trouve l'action previousEpisode ou nextNews on affiche l'épisode précédent ou l'épisode suivant
+    else if ((($_GET['action']) === 'previousEpisode') || (($_GET['action']) === 'nextEpisode'))
+    {
+        $newsId = $_GET['id'];
+        $newsCtlr = new NewsController();
+        $news = $newsCtlr->getNews($newsId);
+        if (!is_null($news)) {
+        require('../view/front/viewNews.php');
+        } else {
+            echo 'Aucun épisode n\'a été trouvé';
+        }
+    }
+
     // Si l'action est "synopsis" : on affiche la page synopsis
-    else if ($_GET['action'] == 'synopsis')
+    else if ($_GET['action'] === 'synopsis')
     {
         require('../view/front/synopsis.php');
     }

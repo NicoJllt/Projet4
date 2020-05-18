@@ -6,7 +6,9 @@ class News
     $newsId,
     $title,
     $content,
-    $dateNews;
+    $dateNews,
+    $previous,
+    $next;
 
   const INVALID_TITLE = 1;
   const INVALID_CONTENT = 2;
@@ -63,6 +65,24 @@ class News
     }
   }
 
+  public function setPrevious($previous)
+  {    
+    if (!is_int($previous) || empty($previous)) {
+      $this->errors[] = NULL;
+    } else {
+      $this->previous = $previous;
+    }
+  }
+  
+  public function setNext($next)
+  {    
+    if (!is_int($next) || empty($next)) {
+      $this->errors[] = NULL;
+    } else {
+      $this->next = $next;
+    }
+  }
+
   public function isNew() {
     return is_null($this->newsId);
   }
@@ -96,5 +116,15 @@ class News
   public function dateNews()
   {
     return $this->dateNews;
+  }
+
+  public function previous()
+  {
+    return $this->previous;
+  }
+
+  public function next()
+  {
+    return $this->next;
   }
 }

@@ -12,13 +12,13 @@
     <body>
         <div class="blocpage">
 
-        <?= include("../view/front/template.php") ?>
+        <?= include("../template/templateHeader.php") ?>
 
             <section class="row">
                 <div class="col-lg-12">
                     <article id="episode-page-bloc">  
                         <h1 class="news-title"><?= $news->title()?></h1>
-                        <p class="news-content"><?= $news->content()?></p>
+                        <div class="news-content"><?= $news->content()?></div>
                         <button class="next-episode-button">Épisode suivant</button>
                     </article>
                 </div>
