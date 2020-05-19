@@ -16,6 +16,10 @@ abstract class NewsManager
 
   abstract public function changePage($nb, $offset);
 
+  abstract public function previousEpisode($id);
+
+  abstract public function nextEpisode($id);
+
   public function save(News $news) {
     if ($news->isValid())
     {

@@ -67,7 +67,7 @@ class News
 
   public function setPrevious($previous)
   {    
-    if (!is_int($previous) || empty($previous)) {
+    if (!is_int($previous) || empty($previous) || is_null($previous)) {
       $this->errors[] = NULL;
     } else {
       $this->previous = $previous;
@@ -76,7 +76,7 @@ class News
   
   public function setNext($next)
   {    
-    if (!is_int($next) || empty($next)) {
+    if (!is_int($next) || empty($next) || is_null($next)){
       $this->errors[] = NULL;
     } else {
       $this->next = $next;

@@ -26,6 +26,8 @@ class NewsManager_PDO extends NewsManager
         $requete = $this->dataBase->prepare('INSERT INTO news (title, content) VALUES (:title, :content)');
         $requete->bindValue(':title', $news->title(), PDO::PARAM_STR);
         $requete->bindValue(':content', $news->content(), PDO::PARAM_STR);
+        // $requete->bindValue(':previous', $news->previous(), PDO::PARAM_INT);
+        // $requete->bindValue(':next', $news->next(), PDO::PARAM_INT);
         $requete->execute();
         $news = $this->getUnique($this->dataBase->lastInsertId());
     }
@@ -35,6 +37,24 @@ class NewsManager_PDO extends NewsManager
         $requete = $this->dataBase->prepare('DELETE FROM news WHERE newsId = :newsId');
         $requete->bindValue(':newsId', (int) $id, PDO::PARAM_INT);
         $requete->execute();
+    }
+
+    public function getPreviousEpisode($id) 
+    {
+        $requete = $this->dataBase->prepare('SELECT * FROM news WHERE previous = :previous');
+        $requete->bindValue(':previous', (int) $previous, PDO::PARAM_INT);
+        $requete->execute();
+        $requete->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'News');
+        return $requete->fetch();
+    }
+
+    public function getNextEpisode($id) 
+    {
+        $requete = $this->dataBase->prepare('SELECT * FROM news WHERE next = :next');
+        $requete->bindValue(':next', (int) $next, PDO::PARAM_INT);
+        $requete->execute();
+        $requete->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'News');
+        return $requete->fetch();
     }
 
     public function getUnique($id)

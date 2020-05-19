@@ -61,6 +61,16 @@ class NewsController
         return $news;
     }
 
+    function getPreviousEpisode($id) {
+        $news = $this->manager->previousEpisode($id);
+        return $news;
+    }
+
+    function getNextEpisode($id) {
+        $news = $this->manager->nextEpisode($id);
+        return $news;
+    }
+
     // function updateNews($id)
     // {
     //     $news = $this->manager->update($id);
