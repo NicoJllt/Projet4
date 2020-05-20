@@ -21,8 +21,8 @@
                     <div class="col-lg-12">
                         <div id="change-page">
                             <ul>
-                                <li><a href="index.php?action=previousPage&offset=10"><button class="previous-episodes-button">Épisodes précédents</button></a></li>
-                                <li><a href="index.php?action=nextPage&offset=10"><button class="next-episodes-button">Épisodes suivants</button></a></li>
+                                <li><a href="index.php?action=previousPage&offset=<?=$offset-10?>">"><button class="previous-episodes-button">Épisodes précédents</button></a></li>
+                                <li><a href="index.php?action=nextPage&offset=<?=$offset+10?>"><button class="next-episodes-button">Épisodes suivants</button></a></li>
                             </ul>
                         </div>
                     </div>

@@ -20,10 +20,10 @@
                         <h1 class="news-title"><?= $news->title()?></h1>
                         <div class="news-content"><?= $news->content()?></div>
 
-                        <a href="index.php?action=previousEpisode&previous=<?= $news->previous()?>">
+                        <a href="index.php?action=showNewsNumber&id=<?= $news->previous()?>">
                         <button class="next-episode-button">Épisode précédent</button>
                         </a>
-                        <a href="index.php?action=nextEpisode&next=<?= $news->next()?>">
+                        <a href="index.php?action=showNewsNumber&id=<?= $news->next()?>">
                         <button class="next-episode-button">Épisode suivant</button>
                         </a>
                     </article>
