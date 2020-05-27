@@ -39,12 +39,20 @@ class NewsManager_PDO extends NewsManager
         $requete->execute();
     }
 
+    public function XNewsFrom($nb, $offset, bool $asc) {
+        // Requête de récupération des 10 épisodes suivants classées dans l'ordre ascendant
+        $requete = $this->dataBase->prepare('SELECT * FROM news ORDER BY newsId ' . ($asc?'ASC':'DESC') . ' LIMIT :offset, :nb');
+        $requete->bindValue(':nb', (int) $nb, PDO::PARAM_INT);
+        $requete->bindValue(':offset', (int) $offset, PDO::PARAM_INT);
+        $requete->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'News');
+        $requete->execute();
+        return $requete->fetchAll();
+    }
+
     public function getUnique($id)
     {
         $requete = $this->dataBase->prepare('SELECT * FROM news WHERE newsId = :newsId');
         $requete->bindValue(':newsId', (int) $id, PDO::PARAM_INT);
-        $requete->bindValue(':previous', (int) $id, PDO::PARAM_INT);
-        $requete->bindValue(':next', (int) $id, PDO::PARAM_INT);
         $requete->execute();
         $requete->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'News');
         return $requete->fetch();
@@ -67,31 +75,31 @@ class NewsManager_PDO extends NewsManager
         return $requete->fetchAll();
     }
 
-    public function firstNews()
-    {
-        // Requête de récupération des 10 premières news publiées classées dans l'ordre ascendant
-        $requete = $this->dataBase->query('SELECT * FROM news ORDER BY newsId ASC LIMIT 10');
-        $requete->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'News');
-        return $requete->fetchAll();
-    }
+    // public function firstNews()
+    // {
+    //     // Requête de récupération des 10 premières news publiées classées dans l'ordre ascendant
+    //     $requete = $this->dataBase->query('SELECT * FROM news ORDER BY newsId ASC LIMIT 10');
+    //     $requete->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'News');
+    //     return $requete->fetchAll();
+    // }
 
-    public function lastNews()
-    {
-        // Requête de récupération des 2 dernières news publiées classées dans l'ordre descendant
-        $requete = $this->dataBase->query('SELECT * FROM news ORDER BY newsId DESC LIMIT 2');
-        $requete->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'News');
-        return $requete->fetchAll();
-    }
+    // public function lastNews()
+    // {
+    //     // Requête de récupération des 2 dernières news publiées classées dans l'ordre descendant
+    //     $requete = $this->dataBase->query('SELECT * FROM news ORDER BY newsId DESC LIMIT 2');
+    //     $requete->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'News');
+    //     return $requete->fetchAll();
+    // }
 
-    public function changePage($nb, $offset) {
-        // Requête de récupération des 10 épisodes suivants classées dans l'ordre ascendant
-        $requete = $this->dataBase->prepare('SELECT * FROM news ORDER BY newsId ASC LIMIT 10, 10');
-        $requete->bindValue(':nb', (int) $nb, PDO::PARAM_INT);
-        $requete->bindValue(':offset', (int) $offset, PDO::PARAM_INT);
-        $requete->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'News');
-        $requete->execute();
-        return $requete->fetchAll();
-    }
+    // public function changePage($nb, $offset) {
+    //     // Requête de récupération des 10 épisodes suivants classées dans l'ordre ascendant
+    //     $requete = $this->dataBase->prepare('SELECT * FROM news ORDER BY newsId ASC LIMIT 10, 10');
+    //     $requete->bindValue(':nb', (int) $nb, PDO::PARAM_INT);
+    //     $requete->bindValue(':offset', (int) $offset, PDO::PARAM_INT);
+    //     $requete->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'News');
+    //     $requete->execute();
+    //     return $requete->fetchAll();
+    // }
 
     public function searchByName($title)
     {

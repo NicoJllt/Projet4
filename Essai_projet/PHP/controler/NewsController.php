@@ -15,15 +15,16 @@ class NewsController
         $this->manager = new NewsManager_PDO($db);
     }
 
-    function getFirstNews() 
+    function getXNewsFrom(int $nb, int $offset, bool $asc) 
     {
-        $news = $this->manager->firstNews();
+        $news = $this->manager->xNewsFrom($nb, $offset, $asc);
         return $news;
     }
 
     function getLastNews() 
     {
-        $news = $this->manager->lastNews();
+        $this->getXnewsFrom(2, 0, false);
+        $news = $this->manager->xNewsFrom();
         return $news;
     }
 
@@ -43,12 +44,6 @@ class NewsController
     function deleteNews($id)
     {
         $this->manager->delete($id);
-    }
-
-    function getOtherPage($nb, $offset)
-    {
-        $news = $this->manager->changePage($nb, $offset);
-        return $news;
     }
 
     // function updateNews($id)

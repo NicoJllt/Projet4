@@ -8,24 +8,12 @@ if (isset($_GET['action']))
     // S'il y a une action et si l'action est "showNews" : on affiche les dernières news
     if ($_GET['action'] == 'showNews')
     {
+        $offset = $_GET['offset'];
         $newsCtlr = new NewsController();
-        $news = $newsCtlr->getFirstNews();
+        $news = $newsCtlr->getXNewsFrom($nb, $offset, $asc);
         
         if (!empty($news)) {
             require('../view/front/firstNews.php');
-        } else {
-            echo 'Aucun épisode n\'a été trouvé';
-        }
-    }
-
-    // S'il y a une action et si l'action est "showLastNews" : on affiche les dernières news
-    else if ($_GET['action'] == 'showLastNews')
-    {
-        $newsCtlr = new NewsController();
-        $news = $newsCtlr->getLastNews();
-        
-        if (!empty($news)) {
-            require('../view/front/lastNews.php');
         } else {
             echo 'Aucun épisode n\'a été trouvé';
         }
@@ -37,26 +25,43 @@ if (isset($_GET['action']))
         $newsId = $_GET['id'];
         $newsCtlr = new NewsController();
         $news = $newsCtlr->getNews($newsId);
-        require('../view/front/viewNews.php');
-    }
 
-    // si on trouve l'action previousPage on affiche la page précédente
-    else if (($_GET['action']) === 'previousPage')
-    {
-        $offset = $_GET['offset'];
-        $newsCtlr = new NewsController();
-        $news = $newsCtlr->getPreviousPage(10, $offset); 
-        require('../view/front/firstNews.php');
+        if (!empty($news)) {
+            require('../view/front/viewNews.php');
+        } else {
+            echo 'L\'épisode n\'existe plus';
+        }
     }
+    // S'il y a une action et si l'action est "showLastNews" : on affiche les dernières news
+    // else if ($_GET['action'] == 'showLastNews')
+    // {
+    //     $newsCtlr = new NewsController();
+    //     $news = $newsCtlr->getLastNews();
+        
+    //     if (!empty($news)) {
+    //         require('../view/front/lastNews.php');
+    //     } else {
+    //         echo 'Aucun épisode n\'a été trouvé';
+    //     }
+    // }
 
-    // si on trouve l'action nextPage on affiche la page suivante
-    else if (($_GET['action']) === 'nextPage') 
-    {
-        $offset = $_GET['offset'];
-        $newsCtlr = new NewsController();
-        $news = $newsCtlr->getNextPage(10, $offset); 
-        require('../view/front/firstNews.php');
-    }
+    // // si on trouve l'action previousPage on affiche la page précédente
+    // else if (($_GET['action']) === 'previousPage')
+    // {
+    //     $offset = $_GET['offset'];
+    //     $newsCtlr = new NewsController();
+    //     $news = $newsCtlr->getPreviousPage(10, $offset); 
+    //     require('../view/front/firstNews.php');
+    // }
+
+    // // si on trouve l'action nextPage on affiche la page suivante
+    // else if (($_GET['action']) === 'nextPage') 
+    // {
+    //     $offset = $_GET['offset'];
+    //     $newsCtlr = new NewsController();
+    //     $news = $newsCtlr->getNextPage(10, $offset); 
+    //     require('../view/front/firstNews.php');
+    // }
 
     // // si on trouve l'action previousEpisode on affiche l'épisode précédent
     // else if (($_GET['action']) === 'previousEpisode')
@@ -82,9 +87,15 @@ if (isset($_GET['action']))
         require('../view/front/synopsis.php');
     }
 
+    else {
+        $newsCtlr = new NewsController();
+        $news = $newsCtlr->getXNewsFrom(10, 0, true);
+        require('../view/front/showNews.php');
+    }
+
     // on affiche par défaut les dernières news
 } else {
     $newsCtlr = new NewsController();
-    $news = $newsCtlr->getFirstNews();
-    require('../view/front/firstNews.php');
+    $news = $newsCtlr->getXNewsFrom(10, 0, true);
+    require('../view/front/showNews.php');
 }
