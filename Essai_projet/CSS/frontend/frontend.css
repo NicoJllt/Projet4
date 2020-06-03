@@ -114,7 +114,7 @@
 #synopsis-bloc {
     position: relative;
     text-align: center;
-    margin: 0 80px 20px 80px;
+    margin: 0 80px;
 
     animation-fill-mode: forwards;
     animation-duration: 1.5s;
@@ -169,6 +169,7 @@
     background-color: white;
     opacity: 80%;
     border-radius: 10px;
+    margin-bottom: 30px;
     padding: 10px;
 }
 

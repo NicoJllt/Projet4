@@ -15,20 +15,20 @@ class NewsController
         $this->manager = new NewsManager_PDO($db);
     }
 
-    function getXNewsFrom(int $nb, int $offset, bool $asc) 
+    function getXNewsFrom(int $nb, int $offset, bool $asc)
     {
         $news = $this->manager->xNewsFrom($nb, $offset, $asc);
         return $news;
     }
 
-    function getLastNews() 
-    {
-        $this->getXnewsFrom(2, 0, false);
-        $news = $this->manager->xNewsFrom();
-        return $news;
-    }
+    // function getLastNews()
+    // {
+    //     $this->getXnewsFrom(2, 0, false);
+    //     $news = $this->manager->xNewsFrom();
+    //     return $news;
+    // }
 
-    function getNews($id) 
+    function getNews($id)
     {
         $news = $this->manager->getUnique($id);
         return $news;

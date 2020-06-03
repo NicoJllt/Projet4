@@ -3,25 +3,34 @@
 require_once('../autoload.php');
 require_once('../controler/NewsController.php');
 
-if (isset($_GET['action']))
-{
-    // S'il y a une action et si l'action est "showNews" : on affiche les dernières news
-    if ($_GET['action'] == 'showNews')
-    {
+if (isset($_GET['action'])) {
+    // S'il y a une action et si l'action est "showNews" : on affiche les premières news
+    if ($_GET['action'] == 'showNews') {
         $offset = $_GET['offset'];
         $newsCtlr = new NewsController();
-        $news = $newsCtlr->getXNewsFrom($nb, $offset, $asc);
-        
+        $news = $newsCtlr->getXNewsFrom(10, $offset, true);
+
         if (!empty($news)) {
-            require('../view/front/firstNews.php');
+            require('../view/front/showNews.php');
+        } else {
+            echo 'Aucun épisode n\'a été trouvé';
+        }
+    }
+
+    // S'il y a une action et si l'action est "showLastNews" : on affiche les dernières news
+    else if ($_GET['action'] == 'showLastNews') {
+        $newsCtlr = new NewsController();
+        $news = $newsCtlr->getXNewsFrom(2, 0, false);
+
+        if (!empty($news)) {
+            require('../view/front/showNews.php');
         } else {
             echo 'Aucun épisode n\'a été trouvé';
         }
     }
 
     // si on trouve showNewsNumber dans l'action, on récupère l'id de la news correspondante et on l'affiche
-    else if (($_GET['action']) === 'showNewsNumber')
-    {
+    else if (($_GET['action']) === 'showNewsNumber') {
         $newsId = $_GET['id'];
         $newsCtlr = new NewsController();
         $news = $newsCtlr->getNews($newsId);
@@ -32,19 +41,7 @@ if (isset($_GET['action']))
             echo 'L\'épisode n\'existe plus';
         }
     }
-    // S'il y a une action et si l'action est "showLastNews" : on affiche les dernières news
-    // else if ($_GET['action'] == 'showLastNews')
-    // {
-    //     $newsCtlr = new NewsController();
-    //     $news = $newsCtlr->getLastNews();
-        
-    //     if (!empty($news)) {
-    //         require('../view/front/lastNews.php');
-    //     } else {
-    //         echo 'Aucun épisode n\'a été trouvé';
-    //     }
-    // }
-
+    
     // // si on trouve l'action previousPage on affiche la page précédente
     // else if (($_GET['action']) === 'previousPage')
     // {
@@ -82,20 +79,19 @@ if (isset($_GET['action']))
     // }
 
     // Si l'action est "synopsis" : on affiche la page synopsis
-    else if ($_GET['action'] === 'synopsis')
-    {
+    else if ($_GET['action'] === 'synopsis') {
         require('../view/front/synopsis.php');
-    }
-
-    else {
+    } else {
+        $offset = 0;
         $newsCtlr = new NewsController();
-        $news = $newsCtlr->getXNewsFrom(10, 0, true);
+        $news = $newsCtlr->getXNewsFrom(10, $offset, true);
         require('../view/front/showNews.php');
     }
 
     // on affiche par défaut les dernières news
 } else {
+    $offset = 0;
     $newsCtlr = new NewsController();
-    $news = $newsCtlr->getXNewsFrom(10, 0, true);
+    $news = $newsCtlr->getXNewsFrom(10, $offset, true);
     require('../view/front/showNews.php');
 }

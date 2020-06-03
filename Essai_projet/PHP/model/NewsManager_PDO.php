@@ -23,25 +23,43 @@ class NewsManager_PDO extends NewsManager
 
     protected function add(News $news)
     {
-        $requete = $this->dataBase->prepare('INSERT INTO news (title, content, previous, next) VALUES (:title, :content, :previous, :next)');
+        // On récupère la dernière news
+        $prev = $this->XNewsFrom(1, 0, false)[0];
+
+        $requete = $this->dataBase->prepare('INSERT INTO news (title, content, previous) VALUES (:title, :content, :previous)');
         $requete->bindValue(':title', $news->title(), PDO::PARAM_STR);
         $requete->bindValue(':content', $news->content(), PDO::PARAM_STR);
+        // La valeur de previous dans la nouvelle news est l'id de $prev
         $requete->bindValue(':previous', $news->previous(), PDO::PARAM_INT);
-        $requete->bindValue(':next', $news->next(), PDO::PARAM_INT);
         $requete->execute();
         $news = $this->getUnique($this->dataBase->lastInsertId());
+
+        // On met à jour la valeur de next dans $prev
+        $prev->setNext($news->newsId($news->newsId()));
+        $this->update($prev);
     }
 
     public function delete($id)
     {
+        // Récupérer la news à supprimer
+        $deleted = $this->getUnique($id);
         $requete = $this->dataBase->prepare('DELETE FROM news WHERE newsId = :newsId');
         $requete->bindValue(':newsId', (int) $id, PDO::PARAM_INT);
         $requete->execute();
+        // Récupérer la news d'avant et la news d'après puis répartir les previous et next
+        // de la news supprimée
+        $prev = $this->getUnique($deleted->previous());
+        $next = $this->getUnique($deleted->next());
+        $next->setPrevious($deleted->previous());
+        $prev->setNext($deleted->next());
+        $this->update($prev);
+        $this->update($next);
     }
 
-    public function XNewsFrom($nb, $offset, bool $asc) {
+    public function XNewsFrom($nb, $offset, bool $asc)
+    {
         // Requête de récupération des 10 épisodes suivants classées dans l'ordre ascendant
-        $requete = $this->dataBase->prepare('SELECT * FROM news ORDER BY newsId ' . ($asc?'ASC':'DESC') . ' LIMIT :offset, :nb');
+        $requete = $this->dataBase->prepare('SELECT * FROM news ORDER BY newsId ' . ($asc ? 'ASC' : 'DESC') . ' LIMIT :offset, :nb');
         $requete->bindValue(':nb', (int) $nb, PDO::PARAM_INT);
         $requete->bindValue(':offset', (int) $offset, PDO::PARAM_INT);
         $requete->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'News');
@@ -63,6 +81,7 @@ class NewsManager_PDO extends NewsManager
         $requete = $this->dataBase->prepare('UPDATE news SET title = :title, content = :content WHERE newsId = :newsId');
         $requete->bindValue(':title', $news->title(), PDO::PARAM_STR);
         $requete->bindValue(':content', $news->content(), PDO::PARAM_STR);
+        $requete->bindValue(':newsId', $news->newsId(), PDO::PARAM_INT);
         $requete->execute();
     }
 

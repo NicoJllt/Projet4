@@ -57,8 +57,8 @@ class News
   }
 
   public function setDateNews($dateNews)
-  {    
-    if (!date_parse ($dateNews)) {
+  {
+    if (!date_parse($dateNews)) {
       $this->errors[] = self::INVALID_CONTENT;
     } else {
       $this->dateNews = $dateNews;
@@ -66,16 +66,16 @@ class News
   }
 
   public function setPrevious($previous)
-  {    
+  {
     if (is_null($previous) || !is_int($previous) || empty($previous)) {
       $this->errors[] = NULL;
     } else {
       $this->previous = $previous;
     }
   }
-  
+
   public function setNext($next)
-  {    
+  {
     if (is_null($next) || !is_int($next) || empty($next)) {
       $this->errors[] = NULL;
     } else {
@@ -83,11 +83,13 @@ class News
     }
   }
 
-  public function isNew() {
+  public function isNew()
+  {
     return is_null($this->newsId);
   }
 
-  public function isValid() {
+  public function isValid()
+  {
     return empty($this->errors);
   }
 
