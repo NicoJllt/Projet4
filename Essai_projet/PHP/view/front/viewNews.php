@@ -36,6 +36,29 @@
                 </article>
             </div>
         </section>
+
+        <section class="row">
+            <div class="col-lg-12">
+                <div id="comment-page-bloc">
+                    <a href="index.php?action=showMessages">
+                        <div id="show-comments-button">Afficher les commentaires</div>
+                    </a>
+                    <?php
+                    foreach ($message as $showMessage) {
+                    ?>
+                        <div class="comment-bloc">
+                            <div class="message-user-name"><?= $showMessage->userName() ?></div>
+                            <div class="message-date"><?= date_parse($showMessage->dateMessage()) ?></div>
+                            <p class="message-content"><?= $showMessage->content() ?></p>
+                        </div>
+                        </a>
+                    <?php } ?>
+
+                    <input type="text" name="comment" placehorder="Ajouter un commentaire" id="add-comment" />
+
+                </div>
+            </div>
+        </section>
     </div>
 </body>
 
