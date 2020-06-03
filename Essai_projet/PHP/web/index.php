@@ -3,6 +3,8 @@
 require_once('../autoload.php');
 require_once('../controler/NewsController.php');
 
+// EPISODES
+
 if (isset($_GET['action'])) {
     // S'il y a une action et si l'action est "showNews" : on affiche les premières news
     if ($_GET['action'] == 'showNews') {
@@ -40,7 +42,34 @@ if (isset($_GET['action'])) {
         } else {
             echo 'L\'épisode n\'existe plus';
         }
+
+        if (($_GET['action']) === 'showMessages') {
+            if (empty($messages)) {
+                echo 'Aucun commentaire';
+            } else {
+                $msgCtlr = new MessagesController();
+                $messages = $msgCtlr->getMessages($id);
+            }
+        }
     }
+
+    // Si l'action est "synopsis" : on affiche la page synopsis
+    else if ($_GET['action'] === 'synopsis') {
+        require('../view/front/synopsis.php');
+    } else {
+        $offset = 0;
+        $newsCtlr = new NewsController();
+        $news = $newsCtlr->getXNewsFrom(10, $offset, true);
+        require('../view/front/showNews.php');
+    }
+
+    // on affiche par défaut les dernières news
+} else {
+    $offset = 0;
+    $newsCtlr = new NewsController();
+    $news = $newsCtlr->getXNewsFrom(10, $offset, true);
+    require('../view/front/showNews.php');
+}
     
     // // si on trouve l'action previousPage on affiche la page précédente
     // else if (($_GET['action']) === 'previousPage')
@@ -77,21 +106,3 @@ if (isset($_GET['action'])) {
     //     $news = $newsCtlr->getNextEpisode($nextId);
     //     require('../view/front/viewNews.php');
     // }
-
-    // Si l'action est "synopsis" : on affiche la page synopsis
-    else if ($_GET['action'] === 'synopsis') {
-        require('../view/front/synopsis.php');
-    } else {
-        $offset = 0;
-        $newsCtlr = new NewsController();
-        $news = $newsCtlr->getXNewsFrom(10, $offset, true);
-        require('../view/front/showNews.php');
-    }
-
-    // on affiche par défaut les dernières news
-} else {
-    $offset = 0;
-    $newsCtlr = new NewsController();
-    $news = $newsCtlr->getXNewsFrom(10, $offset, true);
-    require('../view/front/showNews.php');
-}

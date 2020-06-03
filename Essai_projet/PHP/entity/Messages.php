@@ -4,6 +4,7 @@ class Messages
 {
   protected $errors = [],
     $messageId,
+    $userName,
     $dateMessage,
     $idUser,
     $idNews,
@@ -38,9 +39,18 @@ class Messages
     $this->messageId = (int) $messageId;
   }
 
+  public function setUserName($userName)
+  {
+    if (!is_string($userName) || empty($userName)) {
+      $this->errors[] = self::INVALID_CONTENT;
+    } else {
+      $this->userName = $userName;
+    }
+  }
+
   public function setDateMessage($dateMessage)
   {
-    if (!date_parse ($dateMessage)) {
+    if (!date_parse($dateMessage)) {
       $this->errors[] = self::INVALID_CONTENT;
     } else {
       $this->dateMessage = $dateMessage;
@@ -65,13 +75,13 @@ class Messages
   public function setContent($content)
   {
     if (!is_string($content) || empty($content)) {
-        $this->errors[] = self::INVALID_CONTENT;
+      $this->errors[] = self::INVALID_CONTENT;
     } else {
-        $this->content = $content;
+      $this->content = $content;
     }
   }
 
-  public function setMarkedMessage($markedMessage) 
+  public function setMarkedMessage($markedMessage)
   {
     if ($markedMessage === NULL) {
       $this->markedMessage = $markedMessage;
@@ -80,11 +90,13 @@ class Messages
     }
   }
 
-  public function isNew() {
+  public function isNew()
+  {
     return is_null($this->messageId);
   }
 
-  public function isValid() {
+  public function isValid()
+  {
     return empty($this->errors);
   }
 
@@ -98,6 +110,11 @@ class Messages
   public function messageId()
   {
     return $this->messageId;
+  }
+
+  public function userName()
+  {
+    return $this->userName;
   }
 
   public function dateMessage()

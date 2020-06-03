@@ -21,13 +21,6 @@ class NewsController
         return $news;
     }
 
-    // function getLastNews()
-    // {
-    //     $this->getXnewsFrom(2, 0, false);
-    //     $news = $this->manager->xNewsFrom();
-    //     return $news;
-    // }
-
     function getNews($id)
     {
         $news = $this->manager->getUnique($id);
@@ -45,6 +38,14 @@ class NewsController
     {
         $this->manager->delete($id);
     }
+
+    
+    // function getLastNews()
+    // {
+    //     $this->getXnewsFrom(2, 0, false);
+    //     $news = $this->manager->xNewsFrom();
+    //     return $news;
+    // }
 
     // function updateNews($id)
     // {

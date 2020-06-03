@@ -20,10 +20,8 @@ class MessagesManager_PDO extends MessagesManager
 
     protected function add(Messages $message)
     {
-        $requete = $this->dataBase->prepare('INSERT INTO messages (idUser, idNews, idMessage, content, markedMessage) VALUES (:idUser, :idNews, :idMessage, :content, :markedMessage)');
-        $requete->bindValue(':idUser', (int) $message->idUser(), PDO::PARAM_INT);
-        $requete->bindValue(':idNews', (int) $message->idNews(), PDO::PARAM_INT);
-        $requete->bindValue(':idMessage', (int) $message->idMessage(), PDO::PARAM_INT);
+        $requete = $this->dataBase->prepare('INSERT INTO messages (userName, dateMessage, content) VALUES (:userName, :dateMessage, :content)');
+        $requete->bindValue(':userName', $message->userName(), PDO::PARAM_STR);
         $requete->bindValue(':content', $message->content(), PDO::PARAM_STR);
         $requete->bindValue(':markedMessage', (int) $message->markedMessage(), PDO::PARAM_INT);
         $requete->execute();
@@ -32,6 +30,7 @@ class MessagesManager_PDO extends MessagesManager
 
     public function delete($id)
     {
+        $deleted = $this->getUnique($id);
         $requete = $this->dataBase->prepare('DELETE FROM messages WHERE messageId = :messageId');
         $requete->bindValue(':messageId', (int) $id, PDO::PARAM_INT);
         $requete->execute();
@@ -48,13 +47,11 @@ class MessagesManager_PDO extends MessagesManager
 
     protected function update(Messages $message)
     {
-        $requete = $this->dataBase->prepare('UPDATE messages SET idUser = :idUser, idNews = :idNews, idMessage = :idMessage, content = :content, markedMessage = :markedMessage WHERE messageId = :messageId');
-        $requete->bindValue(':idUser', (int) $message->idUser(), PDO::PARAM_INT);
-        $requete->bindValue(':idNews', (int) $message->idNews(), PDO::PARAM_INT);
-        $requete->bindValue(':idMessage', (int) $message->idMessage(), PDO::PARAM_INT);
-        $requete->bindValue(':messageId', (int) $message->messageId(), PDO::PARAM_INT);
+        $requete = $this->dataBase->prepare('UPDATE messages SET userName = :userName, dateMessage = :dateMessage, content = :content WHERE messageId = :messageId');
+        $requete->bindValue(':userName', $message->userName(), PDO::PARAM_STR);
+        $requete->bindValue(':dateMessage', $message->dateMessage(), PDO::PARAM_INT);
         $requete->bindValue(':content', $message->content(), PDO::PARAM_STR);
-        $requete->bindValue(':markedMessage', (int) $id->markedMessage(), PDO::PARAM_INT);
+        $requete->bindValue(':messageId', $message->messageId(), PDO::PARAM_INT);
         $requete->execute();
     }
 
