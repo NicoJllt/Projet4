@@ -44,11 +44,11 @@ if (isset($_GET['action'])) {
         }
 
         if (($_GET['action']) === 'showMessages') {
+            $msgCtlr = new MessagesController();
+            $messages = $msgCtlr->getMessages($id);
+
             if (empty($messages)) {
                 echo 'Aucun commentaire';
-            } else {
-                $msgCtlr = new MessagesController();
-                $messages = $msgCtlr->getMessages($id);
             }
         }
     }

@@ -25,8 +25,8 @@
         <section class="row">
             <div class="col-lg-12">
                 <form method="post">
-                    <div id="news-form-bloc">
-                        <h1 id="header-form">Ajout d'un nouvel épisode</h1>
+                    <div id="create-news-form-bloc">
+                        <h1 id="header-form-create">Ajout d'un nouvel épisode</h1>
 
                         <h2 class="elements-form">Titre</h2>
                         <input type="text" name="title" placeholder="Titre de l'épisode" /><br>
@@ -34,7 +34,7 @@
                         <h2 class="elements-form">Contenu</h2>
                         <textarea name="content" rows="8" cols="30" placeholder="Contenu de l'épisode"></textarea><br>
 
-                        <div id="button-form">
+                        <div id="create-form-buttons">
                             <button type="reset" value="Annuler">Annuler</button>
                             <button type="submit" value="Ajouter l'épisode" action="admin.php?action=createNews">Ajouter l'épisode</button>
                         </div>

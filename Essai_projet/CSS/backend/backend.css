@@ -2,7 +2,7 @@
     /* border: 2px solid red; */
 }
 
-#news-form-bloc {
+#create-news-form-bloc {
     display: flex;
     flex-direction: column;
     align-self: center;
@@ -12,7 +12,7 @@
     padding: 10px;
 }
 
-#header-form {
+#header-form-create {
     text-align: center;
     justify-content: center;
 }
@@ -22,17 +22,17 @@
     justify-content: left;
 }
 
-#button-form {
+#create-form-buttons {
     text-align: center;
 }
 
-#button-form button {
+#create-form-buttons button {
     border: none;
     padding: 5px;
     color: white;
     background-color: #5f9bd4;
 }
 
-#button-form button:hover {
+#create-form-buttons button:hover {
     background-color: #3577b4;
 }

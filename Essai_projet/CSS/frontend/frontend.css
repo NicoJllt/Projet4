@@ -325,3 +325,17 @@
     margin: 0 100px 0 920px;
     border-radius: 5px;
 }
+
+#show-comments-button {
+    text-align: center;
+}
+
+#add-comment-bloc {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 30px;
+    margin: 50px 0;
+
+}

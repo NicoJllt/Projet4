@@ -54,7 +54,17 @@
                         </a>
                     <?php } ?>
 
-                    <input type="text" name="comment" placehorder="Ajouter un commentaire" id="add-comment" />
+                    <form method="post">
+                    <div id="add-comment-bloc">
+                        <h1 id="header-form-comment">Ajouter un commentaire</h1>
+
+                        <input type="text" name="comment" value="Ajouter un commentaire" placehorder="Ajouter un commentaire" id="add-comment-text" />
+
+                        <div id="comment-form-button">
+                            <button type="submit" value="Ajouter le commentaire" action="admin.php?action=addComment">Ajouter le commentaire</button>
+                        </div>
+                    </div>
+                </form>
 
                 </div>
             </div>
