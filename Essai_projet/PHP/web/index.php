@@ -3,14 +3,14 @@
 require_once('../autoload.php');
 require_once('../controler/NewsController.php');
 
-// EPISODES
+require('../template/global.php');
 
 if (isset($_GET['action'])) {
     // S'il y a une action et si l'action est "showNews" : on affiche les premières news
     if ($_GET['action'] == 'showNews') {
         $offset = $_GET['offset'];
         $newsCtlr = new NewsController();
-        $news = $newsCtlr->getXNewsFrom(10, $offset, true);
+        $news = $newsCtlr->getXNewsFrom($showNbNews + 1, $offset, true);
 
         if (!empty($news)) {
             require('../view/front/showNews.php');
@@ -21,8 +21,9 @@ if (isset($_GET['action'])) {
 
     // S'il y a une action et si l'action est "showLastNews" : on affiche les dernières news
     else if ($_GET['action'] == 'showLastNews') {
+        $offset = 0;
         $newsCtlr = new NewsController();
-        $news = $newsCtlr->getXNewsFrom(2, 0, false);
+        $news = $newsCtlr->getXNewsFrom($showXLastNews, $offset, false);
 
         if (!empty($news)) {
             require('../view/front/showNews.php');
@@ -56,10 +57,13 @@ if (isset($_GET['action'])) {
     // Si l'action est "synopsis" : on affiche la page synopsis
     else if ($_GET['action'] === 'synopsis') {
         require('../view/front/synopsis.php');
-    } else {
+    }
+
+    // sinon on affiche les dernières news
+    else {
         $offset = 0;
         $newsCtlr = new NewsController();
-        $news = $newsCtlr->getXNewsFrom(10, $offset, true);
+        $news = $newsCtlr->getXNewsFrom($showNbNews + 1, $offset, true);
         require('../view/front/showNews.php');
     }
 
@@ -67,7 +71,7 @@ if (isset($_GET['action'])) {
 } else {
     $offset = 0;
     $newsCtlr = new NewsController();
-    $news = $newsCtlr->getXNewsFrom(10, $offset, true);
+    $news = $newsCtlr->getXNewsFrom($showNbNews + 1, $offset, true);
     require('../view/front/showNews.php');
 }
     

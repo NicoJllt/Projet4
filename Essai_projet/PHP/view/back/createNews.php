@@ -20,7 +20,7 @@
 <body>
     <div class="blocpage">
 
-        <?= include("../template/templateHeader.php") ?>
+        <?php include("../template/templateHeader.php") ?>
 
         <section class="row">
             <div class="col-lg-12">

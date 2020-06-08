@@ -13,7 +13,7 @@
 <body>
     <div class="blocpage">
 
-        <?= include("../template/templateHeader.php") ?>
+        <?php include("../template/templateHeader.php") ?>
 
         <section id="synopsis-bloc">
             <section class="row">

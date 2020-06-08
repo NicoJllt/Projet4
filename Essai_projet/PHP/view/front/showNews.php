@@ -13,12 +13,12 @@
 <body>
     <div class="blocpage">
 
-        <?= include("../template/templateHeader.php") ?>
+        <?php include("../template/templateHeader.php") ?>
 
         <section class="news-preview-bloc">
             <section class="row">
                 <?php
-                for ($i = 0; $i < 11; $i++) {
+                for ($i = 0; $i < min($showNbNews, count($news)); $i++) {
                     $showNews = $news[$i]; ?>
 
                     <div class="col-md-6">
@@ -41,12 +41,12 @@
                     <div id="change-page">
                         <ul>
                             <?php
-                            if ($offset >= 11) { ?>
-                                <li><a href="index.php?action=showNews&offset=<?= $offset - 10 ?>"><button class="previous-episodes-button">Épisodes précédents</button></a></li>
+                            if ($offset >= $showNbNews) { ?>
+                                <li><a href="index.php?action=showNews&offset=<?= $offset - $showNbNews ?>"><button class="previous-episodes-button">Épisodes précédents</button></a></li>
                             <?php } ?>
                             <?php
-                            if (count($news) > 11) { ?>
-                                <li><a href="index.php?action=showNews&offset=<?= $offset + 10 ?>"><button class="next-episodes-button">Épisodes suivants</button></a></li>
+                            if (count($news) >= ($showNbNews + 1)) { ?>
+                                <li><a href="index.php?action=showNews&offset=<?= $offset + $showNbNews ?>"><button class="next-episodes-button">Épisodes suivants</button></a></li>
                             <?php } ?>
                         </ul>
                     </div>

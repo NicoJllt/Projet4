@@ -326,16 +326,35 @@
     border-radius: 5px;
 }
 
+/* Partie commentaires */
+
+#comment-page-bloc {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 20px 100px 50px 100px;
+}
+
 #show-comments-button {
     text-align: center;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    list-style-type: none;
 }
 
 #add-comment-bloc {
     position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 70%;
+    text-align: center;
     height: 30px;
-    margin: 50px 0;
 
+    /* left: 50%;
+    transform: translateX(-50%);
+    width: 70%; */
+    /* margin: 100px 0; */
+}
+
+#comment-form-button {
+    position: relative;
+    float: right;
 }

@@ -3,6 +3,8 @@
 require_once('../autoload.php');
 require_once('../controler/NewsController.php');
 
+require('../template/global.php');
+
 if (isset($_GET['action'])) {
     if ($_GET['action'] == 'createNews') {
         if (isset($_POST['title']) && isset($_POST['content'])) {

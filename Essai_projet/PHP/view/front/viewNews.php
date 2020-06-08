@@ -13,7 +13,7 @@
 <body>
     <div class="blocpage">
 
-        <?= include("../template/templateHeader.php") ?>
+        <?php include("../template/templateHeader.php") ?>
 
         <section class="row">
             <div class="col-lg-12">
@@ -56,19 +56,18 @@
 
                     <form method="post">
                     <div id="add-comment-bloc">
-                        <h1 id="header-form-comment">Ajouter un commentaire</h1>
 
-                        <input type="text" name="comment" value="Ajouter un commentaire" placehorder="Ajouter un commentaire" id="add-comment-text" />
+                        <input type="text" name="comment" placehorder="Ajouter un commentaire" id="add-comment-text" />
 
                         <div id="comment-form-button">
-                            <button type="submit" value="Ajouter le commentaire" action="admin.php?action=addComment">Ajouter le commentaire</button>
+                            <button type="submit" value="Valider le commentaire" action="admin.php?action=addComment">Valider</button>
                         </div>
                     </div>
                 </form>
-
                 </div>
             </div>
         </section>
+
     </div>
 </body>
 
