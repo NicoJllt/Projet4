@@ -7,3 +7,6 @@ $showNbNews = 10;
 
 // variable nombre d'épisodes à afficher dans la pages des derniers épisodes
 $showXLastNews = 2;
+
+// variable $offset
+// $offset = 10;

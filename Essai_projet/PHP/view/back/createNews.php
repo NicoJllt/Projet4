@@ -24,7 +24,7 @@
 
         <section class="row">
             <div class="col-lg-12">
-                <form method="post">
+                <form method="post" action="admin.php?action=createNews">
                     <div id="create-news-form-bloc">
                         <h1 id="header-form-create">Ajout d'un nouvel épisode</h1>
 
@@ -36,7 +36,7 @@
 
                         <div id="create-form-buttons">
                             <button type="reset" value="Annuler">Annuler</button>
-                            <button type="submit" value="Ajouter l'épisode" action="admin.php?action=createNews">Ajouter l'épisode</button>
+                            <button type="submit" value="Ajouter l'épisode">Ajouter l'épisode</button>
                         </div>
                     </div>
                 </form>

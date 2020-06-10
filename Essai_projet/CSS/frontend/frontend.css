@@ -20,49 +20,78 @@
 }
 
 /* BARRE DE NAVIGATION */
-.summary ul {
+.summary {
+    display: block;
+    position: fixed;
     z-index: 100;
+    width: 100%;
+    margin: 0 auto;
+    list-style-type: none;
+}
+
+.summary ul {
     display: flex;
     flex-direction: row;
-    position: fixed;
-    text-align: center;
-    list-style-type: none;
-    background-color: white;
-    height: 45px;
-    width: 105%;
-    left: -40px;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 2px rgba(255, 255, 255, 0.8);
+
+    transition-property: background-color, height;
+    transition-duration: 1s;
+}
+
+.summary ul:hover {
+    background-color: rgba(255, 255, 255, 1);
+    height: 70px;
 }
 
 .summary li {
-    font-size: 20px;
-    background-color: white;
-    opacity: 80%;
+    display: inline-block;
+    position: relative;
     border: none;
+    list-style-type: none;
 }
 
 .summary a {
-    display: block;
-    padding: 10px;
-    height: 45px;
+    display: inline-block;
+    position: relative;
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 20px 10px;
     text-decoration: none;
-    color: black;
+    color: #212931;
+    opacity: 0.7;
 }
+
+/* .home-nav:before, .home-nav:after {
+    position: absolute;
+    top: 8px;
+    content: "-";
+}
+
+.home-nav:before {
+    left: -3px;
+}
+
+.home-nav:after {
+    right: -3px;
+} */
 
 .summary a:hover {
     text-decoration: none;
-    color: black;
-    border: 1px solid #2b5175;
+    color: #212931;
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 .summary a:active {
-    color: black;
-    border: 1px solid #2b5175;
+    color: #212931;
 }
 
 .summary a:focus {
-    color: black;
-    border: 1px solid #2b5175;
-    background-color: grey;
+    color: #212931;
 }
 
 .last-episodes-nav {
@@ -88,7 +117,8 @@
 /* HEADER : TITRE ET AUTEUR */
 .title-framed {
     border: 4px solid white;
-    width: 600px;
+    width: 700px;
+    padding: 20px 10px;
     overflow: hidden;
     margin: 0 auto;
     margin-top: 140px;
@@ -101,6 +131,7 @@
     text-align: center;
     font-style: normal;
     color: white;
+    text-transform: uppercase;
 }
 
 .book-author {
@@ -199,7 +230,7 @@
     }
 
     to {
-        margin-top: 0;
+        margin-top: 100px;
     }
 }
 
@@ -209,7 +240,7 @@
     }
 
     to {
-        margin-top: 0;
+        margin-top: 100px;
     }
 }
 
@@ -219,7 +250,7 @@
     }
 
     to {
-        margin-top: 0;
+        margin-top: 100px;
     }
 }
 
@@ -244,7 +275,9 @@
 }
 
 .news-title-preview {
-    color: black;
+    text-transform: uppercase;
+    font-size: 30px;
+    color: #212931;
     text-align: center;
     overflow: hidden;
 }
@@ -299,31 +332,67 @@
 /* PAGE EPISODE */
 #episode-page-bloc {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    margin: -50px 100px 10px 100px;
+    display: block;
+    margin: 110px 100px 10px 100px;
     border-radius: 10%;
 }
 
 .news-title {
     text-transform: uppercase;
+    font-weight: bold;
     color: white;
     text-align: center;
+    margin-bottom: 30px;
 }
 
+/* .news-title:before, .news-title:after {
+    content: '';
+    display: inline-block;
+    position: relative;
+    margin-top: 2%;
+    width: calc(50% - 20rem);
+    border-top: 2px solid rgba(255, 255, 255, 0.5);
+    overflow: hidden;
+}
+
+.news-title:before {
+    float: left;
+    margin-left: 7.5%;
+}
+
+.news-title:after {
+    float: right;
+    margin-right: 7.5%;
+} */
+
 .news-content {
-    background-color: rgba(255, 255, 255, 0.9);
-    color: black;
-    text-align: justify;
-    justify-content: center;
-    margin: 10px 100px;
+    background-color: white;
     padding: 200px;
 }
 
-.next-episode-button {
+.news-content p {
+    color: #212931;
+    text-align: justify;
+    justify-content: center;
+}
+
+/* Partie boutons changement d'épisode */
+
+.change-episode-buttons {
+    position: relative;
     text-align: right;
-    margin: 0 100px 0 920px;
+    margin: 10px 100px;
+}
+
+.previous-episode-button, .next-episode-button {
+    padding: 10px;
     border-radius: 5px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.previous-episode-button:hover, .next-episode-button:hover {
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 /* Partie commentaires */
@@ -336,25 +405,52 @@
 }
 
 #show-comments-button {
-    text-align: center;
+    font-size: 20px;
     color: black;
     font-weight: bold;
     text-decoration: none;
     list-style-type: none;
+    background-color: white;
+    border: 1px solid grey;
+    border-radius: 5px;
+    width: 280px;
+    text-align: center;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 #add-comment-bloc {
     position: relative;
-    text-align: center;
-    height: 30px;
+    margin-top: 15px;
+    background-color: white;
+    border: 2px solid #eeeeee;
+}
 
-    /* left: 50%;
-    transform: translateX(-50%);
-    width: 70%; */
-    /* margin: 100px 0; */
+#add-comment-bloc h1 {
+    text-transform: uppercase;
+    text-align: left;
+    font-size: 20px;
+}
+
+#add-comment-bloc textarea {
+    position: relative;
+    border: 2px solid #eeeeee;
 }
 
 #comment-form-button {
     position: relative;
-    float: right;
+    text-align: right;
+    margin: 10px;
+}
+
+#comment-form-button button {
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+#comment-form-button button:hover {
+    background-color: rgba(255, 255, 255, 0.8);
 }

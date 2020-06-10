@@ -6,7 +6,7 @@
                     <li><a href="index.php?action=synopsis" class="synopsis-nav">Synopsis</a></li>
                     <li><a href="index.php" class="home-nav">Accueil</a></li>
                     <li><a href="index.php?action=showLastNews" class="last-episodes-nav">Derniers épisodes</a></li>
-
+                
                     <li><input type="search" class="site-search-nav" name="q" aria-label="Search"></li>
                     <li><button type="submit" class="register-nav">S'inscrire</button></li>
                     <li><button type="submit" class="connection-nav">Se connecter</button></li>
