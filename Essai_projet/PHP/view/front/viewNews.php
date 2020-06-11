@@ -26,13 +26,13 @@
 
         <section class="change-episode-buttons">
             <?php
-            if ($newsId >= 2) { ?>
+            if (!is_null($news->previous())) { ?>
                 <a href="index.php?action=showNewsNumber&id=<?= $news->previous() ?>">
                     <button class="previous-episode-button">Épisode précédent</button>
                 </a>
             <?php } ?>
             <?php
-            if (isset($newsId)) { ?>
+            if (!is_null($news->next())) { ?>
                 <a href="index.php?action=showNewsNumber&id=<?= $news->next() ?>">
                     <button class="next-episode-button">Épisode suivant</button>
                 </a>

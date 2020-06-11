@@ -5,7 +5,7 @@ class DBFactory
     public static function getPDOConnection()
     {
 
-        require_once 'dbdata.php';
+        require 'dbdata.php';
 
         // Connexion à la BDD MySQL sur 1&1
         $dataBase = new PDO("$dbtype:host=$host; dbname=$dbname; charset=$charset", $login, $pwd);

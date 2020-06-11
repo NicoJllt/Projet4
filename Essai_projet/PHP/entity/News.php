@@ -67,8 +67,8 @@ class News
 
   public function setPrevious($previous)
   {
-    if (is_null($previous) || !is_int($previous) || empty($previous)) {
-      $this->errors[] = NULL;
+    if (is_null($previous) || empty($previous)) {
+      $this->errors[] = "Identifiant non fourni";
     } else {
       $this->previous = $previous;
     }
@@ -76,8 +76,8 @@ class News
 
   public function setNext($next)
   {
-    if (is_null($next) || !is_int($next) || empty($next)) {
-      $this->errors[] = NULL;
+    if (is_null($next) || empty($next)) {
+      $this->errors[] = "Identifiant non fourni";
     } else {
       $this->next = $next;
     }
