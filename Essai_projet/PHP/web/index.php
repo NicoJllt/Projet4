@@ -33,7 +33,7 @@ if (isset($_GET['action'])) {
     }
 
     // si on trouve showNewsNumber dans l'action, on récupère l'id de la news correspondante et on l'affiche
-    else if (($_GET['action']) === 'showNewsNumber') {
+    else if (($_GET['action']) == 'showNewsNumber') {
         $newsId = $_GET['id'];
         $newsCtlr = new NewsController();
         $news = $newsCtlr->getNews($newsId);
@@ -44,7 +44,7 @@ if (isset($_GET['action'])) {
             echo 'L\'épisode n\'existe plus';
         }
 
-        if (($_GET['action']) === 'showMessages') {
+        if (($_GET['action']) == 'showMessages') {
             $msgCtlr = new MessagesController();
             $messages = $msgCtlr->getMessages($id);
 
@@ -55,7 +55,7 @@ if (isset($_GET['action'])) {
     }
 
     // Si l'action est "synopsis" : on affiche la page synopsis
-    else if ($_GET['action'] === 'synopsis') {
+    else if ($_GET['action'] == 'synopsis') {
         require('../view/front/synopsis.php');
     }
 

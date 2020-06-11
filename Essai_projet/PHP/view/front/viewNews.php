@@ -44,7 +44,7 @@
                 <div id="comment-page-bloc">
                     <div class="show-comments">
                         <a href="index.php?action=showMessages">
-                            <div id="show-comments-button">Afficher les commentaires</div>
+                            <button id="show-comments-button">Afficher les commentaires</button>
                         </a>
 
                         <?php
@@ -63,7 +63,7 @@
                         <form method="post" action="admin.php?action=addComment">
                             <h1>Laisser un commentaire</h1>
 
-                            <textarea name="content" rows="5" cols="130"></textarea>
+                            <textarea name="content" rows="5" cols="141"></textarea>
 
                             <div id="comment-form-button">
                                 <button type="submit" value="Valider le commentaire">Valider</button>
