@@ -43,7 +43,7 @@
             <div class="col-lg-12">
                 <div id="comment-page-bloc">
                     <div class="show-comments">
-                        <a href="index.php?action=showMessages">
+                        <a href="index.php?action=showMessages&id=idMessage">
                             <button id="show-comments-button">Afficher les commentaires</button>
                         </a>
 

@@ -43,15 +43,6 @@ if (isset($_GET['action'])) {
         } else {
             echo 'L\'épisode n\'existe plus';
         }
-
-        if (($_GET['action']) == 'showMessages') {
-            $msgCtlr = new MessagesController();
-            $messages = $msgCtlr->getMessages($id);
-
-            if (empty($messages)) {
-                echo 'Aucun commentaire';
-            }
-        }
     }
 
     // Si l'action est "synopsis" : on affiche la page synopsis

@@ -13,7 +13,7 @@ if (isset($_GET['action'])) {
             require('index.php');
         }
     } else if (($_GET['action']) == 'deleteNews') {
-        $newsId = $_POST('id');
+        $newsId = $_POST['id'];
         $newsCtlr = new NewsController();
         $newsCtlr->deleteNews($newsId);
         require('index.php');
@@ -28,10 +28,6 @@ if (isset($_GET['action'])) {
         }
     } else if (($_GET['action']) == 'addComment') {
         if (isset($_POST['content'])) {
-            $userName = $_GET['userName'];
-            $dateMsg = $_GET['dateMessage'];
-            $content = $_GET['content'];
-
             $msgCtrl = new MessagesController();
             $message = $msgCtlr->createMessage($_POST['userName'], $_POST['dateMessage'], $_POST['content']);
             require('index.php');
