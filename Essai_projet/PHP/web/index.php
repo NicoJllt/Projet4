@@ -13,7 +13,7 @@ if (isset($_GET['action'])) {
         $news = $newsCtlr->getXNewsFrom($showNbNews + 1, $offset, true);
 
         if (!empty($news)) {
-            require('../view/front/showNews.php');
+            require('../view/front/allNews.php');
         } else {
             echo 'Aucun épisode n\'a été trouvé';
         }
@@ -26,7 +26,7 @@ if (isset($_GET['action'])) {
         $news = $newsCtlr->getXNewsFrom($showXLastNews, $offset, false);
 
         if (!empty($news)) {
-            require('../view/front/showNews.php');
+            require('../view/front/allNews.php');
         } else {
             echo 'Aucun épisode n\'a été trouvé';
         }
@@ -55,7 +55,7 @@ if (isset($_GET['action'])) {
         $offset = 0;
         $newsCtlr = new NewsController();
         $news = $newsCtlr->getXNewsFrom($showNbNews + 1, $offset, true);
-        require('../view/front/showNews.php');
+        require('../view/front/allNews.php');
     }
 
     // on affiche par défaut les dernières news
@@ -63,5 +63,5 @@ if (isset($_GET['action'])) {
     $offset = 0;
     $newsCtlr = new NewsController();
     $news = $newsCtlr->getXNewsFrom($showNbNews + 1, $offset, true);
-    require('../view/front/showNews.php');
+    require('../view/front/allNews.php');
 }
