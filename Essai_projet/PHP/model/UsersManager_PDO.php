@@ -1,6 +1,6 @@
 <?php
 // MANAGER PDO DES UTILISATEURS
-class MessagesManager_PDO extends MessagesManager
+class UsersManager_PDO extends UsersManager
 {
     /**
      * Attribut contenant l'instance représentant la BDD.
@@ -25,6 +25,14 @@ class MessagesManager_PDO extends MessagesManager
         $requete->bindValue(':password', $user->password(), PDO::PARAM_STR);
         $requete->execute();
         $user = $this->getUnique($this->dataBase->lastInsertId());
+    }
+
+    public function logIn($id, $pwd) {
+        $requete = $this->dataBase->prepare('SELECT * FROM users WHERE userId = :userId');
+        $requete->bindValue(':userId', (int) $id, PDO::PARAM_INT);
+        $requete->execute();
+        $requete->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Users');
+        return $requete->fetch();
     }
 
     public function delete($id)

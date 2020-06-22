@@ -4,8 +4,10 @@ class Users
 {
   protected $errors = [],
     $userId,
-    $login,
-    $password;
+    $username,
+    $mail,
+    $password,
+    $confirmPassword;
 
   const INVALID_LOGIN = 1;
   const INVALID_PASSWORD = 2;

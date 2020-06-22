@@ -4,9 +4,13 @@ abstract class UsersManager
 {
   abstract protected function add(Users $user);
 
+  abstract protected function update(Users $user);
+
   abstract public function delete($id);
 
   abstract public function getUnique($id);
+
+  abstract public function listAll();
 
   public function save(Users $user) {
     if ($user->isValid())
@@ -18,6 +22,4 @@ abstract class UsersManager
       throw new RuntimeException('L\'utilisateur doit être valide pour être enregistré');
     }
   }
-
-  abstract protected function update(Users $user);
 }

@@ -23,7 +23,7 @@
                         <h1 id="header-form-log-in">Identification</h1>
 
                         <h2 class="log-in-elements-form">Identifiant ou adresse mail</h2>
-                        <input type="text" name="mail" placeholder="Votre identifiant ou mail" /><br>
+                        <input type="text" name="id" placeholder="Votre identifiant ou adresse mail" /><br>
 
                         <h2 class="log-in-elements-form">Mot de passe</h2>
                         <input type="password" name="password" placeholder="Votre mot de passe" /><br>

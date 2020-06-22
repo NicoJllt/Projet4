@@ -45,6 +45,30 @@ if (isset($_GET['action'])) {
         }
     }
 
+    // si on trouve log-in dans l'action, on récupère le mail/identifiant et le mot de passe de l'utilisateur et on le compare?
+    else if ($_GET['action'] == 'log-in') {
+        if (isset($_GET['id']) && isset($_GET['password'])) {
+            $id = $_GET['id'];
+            $pwd = $_GET['password'];
+            $userCtlr = new UsersController();
+            $user = $userCtlr->logInUser($id, $pwd);
+        }
+    }
+
+    // si on trouve subscribe dans l'action, on récupère le mail/identifiant et le mot de passe de l'utilisateur et on l'enregistre
+    else if ($_GET['action'] == 'subscribe') {
+        if ((isset($_POST['username']) && (isset($_POST['mail'])) && isset($_POST['password']) && isset($_POST['confirm-password']))) {
+            $username = $_POST['username'];
+            $mail = $_POST['mail'];
+            $pwd = $_POST['password'];
+            $confirmPwd = $_POST['confirm-password'];
+            $userCtlr = new UsersController();
+            $user = $userCtlr->subscribeUser($username, $mail, $pwd, $confirmPwd);
+        } else {
+            echo 'Informations incomplètes';
+        }
+    }
+
     // Si l'action est "synopsis" : on affiche la page synopsis
     else if ($_GET['action'] == 'synopsis') {
         require('../view/front/synopsis.php');

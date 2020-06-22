@@ -10,19 +10,20 @@ class UsersController
         $this->manager = new UsersManager_PDO($db);
     }
 
-    function logInUser($id)
+    function logInUser($id, $pwd)
     {
-        if (isset($login) && isset($password)) {
-            $logIn = $this->manager->logIn($id);
-            return $logIn;
-        }
+        $logIn = $this->manager->logIn($id, $pwd);
+        return $logIn;
     }
 
-    function subscribeUser($userId, $login, $password)
+    function subscribeUser($username, $mail, $pwd, $confirmPwd)
     {
-        $create = new Users(array('userId' => $userId, 'login' => $login, 'password' => $password));
-        $this->manager->subscribre($create);
+        $create = new Users(array('username' => $username, 'mail' => $mail, 'password' => $pwd, 'confirm-password' => $confirmPwd));
+        $this->manager->save($create);
         return $create;
     }
 
+    function deleteUser($id) {
+        $this->manager->delete($id);
+    }
 }

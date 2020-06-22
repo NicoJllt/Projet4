@@ -22,17 +22,17 @@
                     <div id="subscribe-form-bloc">
                         <h1 id="header-form-subscribe">Inscription</h1>
 
-                        <h2 class="subscribe-elements-form">Adresse mail</h2>
-                        <input type="text" name="mail" placeholder="Votre adresse mail" /><br>
-
                         <h2 class="subscribe-elements-form">Identifiant</h2>
-                        <input type="text" name="identifiant" placeholder="Votre identifiant" /><br>
+                        <input type="text" name="username" placeholder="Votre identifiant" /><br>
+
+                        <h2 class="subscribe-elements-form">Adresse mail</h2>
+                        <input type="email" name="mail" placeholder="Votre adresse mail" /><br>
 
                         <h2 class="subscribe-elements-form">Mot de passe</h2>
                         <input type="password" name="password" placeholder="Votre mot de passe" /><br>
 
                         <h2 class="subscribe-elements-form">Confirmer le mot de passe</h2>
-                        <input type="password" name="password" placeholder="Confirmer votre mot de passe" /><br>
+                        <input type="password" name="confirm-password" placeholder="Confirmer votre mot de passe" /><br>
 
                         <div id="subscribe-form-buttons">
                             <button type="reset" value="Annuler">Annuler</button>
