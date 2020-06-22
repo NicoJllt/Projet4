@@ -47,6 +47,7 @@ class MessagesManager_PDO extends MessagesManager
         $requete = $this->dataBase->prepare('UPDATE users SET login = :login, password = :password WHERE userId = :userId');
         $requete->bindValue(':login', $user->login(), PDO::PARAM_STR);
         $requete->bindValue(':password', $user->password(), PDO::PARAM_STR);
+        $requete->bindValue(':userId', $user->userId(), PDO::PARAM_INT);
         $requete->execute();
     }
 
