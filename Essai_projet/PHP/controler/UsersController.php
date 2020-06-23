@@ -1,5 +1,10 @@
 <?php
 // CONTROLLER DES UTILISATEURS
+
+require_once('../entity/Users.php');
+require_once('../model/UsersManager_PDO.php');
+require_once('../db/DBFactory.php');
+
 class UsersController
 {
     private $manager;
@@ -10,9 +15,9 @@ class UsersController
         $this->manager = new UsersManager_PDO($db);
     }
 
-    function logInUser($id, $pwd)
+    function logInUser($id, $pwd, $username, $mail)
     {
-        $logIn = $this->manager->logIn($id, $pwd);
+        $logIn = $this->manager->logIn($id, $pwd, $username, $mail);
         return $logIn;
     }
 

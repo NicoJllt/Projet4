@@ -9,8 +9,9 @@ class Users
     $password,
     $confirmPassword;
 
-  const INVALID_LOGIN = 1;
-  const INVALID_PASSWORD = 2;
+  const INVALID_USERNAME = 1;
+  const INVALID_MAIL = 2;
+  const INVALID_PASSWORD = 3;
 
   public function __construct($valeurs = [])
   {
@@ -37,12 +38,21 @@ class Users
     $this->userId = (int) $userId;
   }
 
-  public function setLogin($login)
+  public function setUsername($username)
   {
-    if (!is_string($login) || empty($login)) {
-      $this->errors[] = self::INVALID_LOGIN;
+    if (!is_string($username) || empty($username)) {
+      $this->errors[] = self::INVALID_USERNAME;
     } else {
-      $this->login = $login;
+      $this->username = $username;
+    }
+  }
+
+  public function setMail($mail)
+  {
+    if (!is_string($mail) || empty($mail)) {
+      $this->errors[] = self::INVALID_MAIL;
+    } else {
+      $this->mail = $mail;
     }
   }
 
@@ -52,6 +62,15 @@ class Users
       $this->errors[] = self::INVALID_PASSWORD;
     } else {
       $this->password = $password;
+    }
+  }
+
+  public function setConfirmPassword($confirmPassword)
+  {
+    if (!is_string($confirmPassword) || empty($confirmPassword)) {
+      $this->errors[] = self::INVALID_PASSWORD;
+    } else {
+      $this->confirmPassword = $confirmPassword;
     }
   }
 
@@ -75,13 +94,23 @@ class Users
     return $this->userId;
   }
 
-  public function login()
+  public function username()
   {
-    return $this->login;
+    return $this->username;
+  }
+
+  public function mail()
+  {
+    return $this->mail;
   }
 
   public function password()
   {
     return $this->password;
+  }
+
+  public function confirmPassword()
+  {
+    return $this->confirmPassword;
   }
 }

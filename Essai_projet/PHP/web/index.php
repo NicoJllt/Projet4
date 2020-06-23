@@ -48,10 +48,12 @@ if (isset($_GET['action'])) {
     // si on trouve log-in dans l'action, on récupère le mail/identifiant et le mot de passe de l'utilisateur et on le compare?
     else if ($_GET['action'] == 'log-in') {
         if (isset($_GET['id']) && isset($_GET['password'])) {
-            $id = $_GET['id'];
+            $id = $_GET['username'] || $_GET['$mail'];
             $pwd = $_GET['password'];
             $userCtlr = new UsersController();
-            $user = $userCtlr->logInUser($id, $pwd);
+            $user = $userCtlr->logInUser($id, $pwd, $username, $mail);
+        } else {
+            echo 'Informations incomplètes';
         }
     }
 

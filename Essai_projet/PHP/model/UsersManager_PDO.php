@@ -20,25 +20,39 @@ class UsersManager_PDO extends UsersManager
 
     protected function add(Users $user)
     {
-        $requete = $this->dataBase->prepare('INSERT INTO users (login, password) VALUES (:login, :password)');
-        $requete->bindValue(':login', $user->login(), PDO::PARAM_STR);
+        $requete = $this->dataBase->prepare('INSERT INTO users (username, mail, password, confirm-password) VALUES (:username, :mail, :password, :confirm-password)');
+        $requete->bindValue(':username', $user->username(), PDO::PARAM_STR);
+        $requete->bindValue(':mail', $user->mail(), PDO::PARAM_STR);
         $requete->bindValue(':password', $user->password(), PDO::PARAM_STR);
+        $requete->bindValue(':confirm-password', $user->confirmPassword(), PDO::PARAM_STR);
         $requete->execute();
         $user = $this->getUnique($this->dataBase->lastInsertId());
-    }
-
-    public function logIn($id, $pwd) {
-        $requete = $this->dataBase->prepare('SELECT * FROM users WHERE userId = :userId');
-        $requete->bindValue(':userId', (int) $id, PDO::PARAM_INT);
-        $requete->execute();
-        $requete->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Users');
-        return $requete->fetch();
     }
 
     public function delete($id)
     {
         $requete = $this->dataBase->prepare('DELETE FROM users WHERE userId = ' . (int) $id);
         $requete->execute();
+    }
+
+    protected function update(Users $user)
+    {
+        $requete = $this->dataBase->prepare('UPDATE users SET login = :login, password = :password WHERE userId = :userId');
+        $requete->bindValue(':username', $user->username(), PDO::PARAM_STR);
+        $requete->bindValue(':password', $user->password(), PDO::PARAM_STR);
+        $requete->bindValue(':userId', $user->userId(), PDO::PARAM_INT);
+        $requete->execute();
+    }
+
+    public function logIn($id, $pwd, $username, $mail) {
+        $requete = $this->dataBase->prepare('SELECT userId, password FROM users WHERE username = :username, mail = :mail');
+        $requete->bindValue(':userId', (int) $id, PDO::PARAM_INT);
+        $requete->bindValue(':password', $pwd, PDO::PARAM_STR);
+        $requete->bindValue(':username', $username, PDO::PARAM_STR);
+        $requete->bindValue(':mail', $mail, PDO::PARAM_STR);
+        $requete->execute();
+        $requete->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Users');
+        return $requete->fetch();
     }
 
     public function getUnique($id)
@@ -48,15 +62,6 @@ class UsersManager_PDO extends UsersManager
         $requete->execute();
         $requete->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Users');
         return $requete->fetch();
-    }
-
-    protected function update(Users $user)
-    {
-        $requete = $this->dataBase->prepare('UPDATE users SET login = :login, password = :password WHERE userId = :userId');
-        $requete->bindValue(':login', $user->login(), PDO::PARAM_STR);
-        $requete->bindValue(':password', $user->password(), PDO::PARAM_STR);
-        $requete->bindValue(':userId', $user->userId(), PDO::PARAM_INT);
-        $requete->execute();
     }
 
     public function listAll()
@@ -71,9 +76,9 @@ class UsersManager_PDO extends UsersManager
     public function searchByName($name)
     {
         // Une requête avec des paramètres : on utilise une requête préparée
-        $requete = $this->dataBase->prepare('SELECT * FROM users WHERE login LIKE :login ORDER BY login ASC');
+        $requete = $this->dataBase->prepare('SELECT * FROM users WHERE username LIKE :username ORDER BY username ASC');
         // On associe les valeurs aux paramètres de la requête
-        $requete->bindValue(':login', '%' . $name . '%', PDO::PARAM_STR);
+        $requete->bindValue(':username', '%' . $name . '%', PDO::PARAM_STR);
         // On exécute la requête
         $requete->execute();
         // On associe un objet de type Cities à chaque réponse
