@@ -50,6 +50,22 @@ if (isset($_GET['action'])) {
         if (isset($_GET['id']) && isset($_GET['password'])) {
             $id = $_GET['username'] || $_GET['$mail'];
             $pwd = $_GET['password'];
+
+            $isPasswordCorrect = password_verify($pwd, $resultat['password']);
+
+            if (!$resultat) 
+            {
+                echo 'Le mot de passe est incorrect.'
+            }
+            else
+            {
+                if ($isPasswordCorrect) {
+                    session_start();
+                    $_SESSION['username'];
+                    $_SESSION['password']
+                }
+            }
+            
             $userCtlr = new UsersController();
             $user = $userCtlr->logInUser($id, $pwd, $username, $mail);
         } else {
@@ -64,10 +80,11 @@ if (isset($_GET['action'])) {
             $mail = $_POST['mail'];
             $pwd = $_POST['password'];
             $confirmPwd = $_POST['confirm-password'];
+
             $userCtlr = new UsersController();
             $user = $userCtlr->subscribeUser($username, $mail, $pwd, $confirmPwd);
         } else {
-            echo 'Informations incomplètes';
+            echo 'Informations incomplètes.';
         }
     }
 

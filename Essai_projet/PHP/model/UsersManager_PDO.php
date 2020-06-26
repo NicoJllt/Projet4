@@ -44,13 +44,18 @@ class UsersManager_PDO extends UsersManager
         $requete->execute();
     }
 
-    public function logIn($id, $pwd, $username, $mail) {
+    public function logIn($id, $pwd, $username, $mail)
+    {
         $requete = $this->dataBase->prepare('SELECT userId, password FROM users WHERE username = :username, mail = :mail');
         $requete->bindValue(':userId', (int) $id, PDO::PARAM_INT);
         $requete->bindValue(':password', $pwd, PDO::PARAM_STR);
         $requete->bindValue(':username', $username, PDO::PARAM_STR);
         $requete->bindValue(':mail', $mail, PDO::PARAM_STR);
-        $requete->execute();
+        $requete->execute(array(
+            'username' => $username,
+            'mail' => $mail
+        ));
+        $resultat = $req->fetch();
         $requete->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Users');
         return $requete->fetch();
     }
@@ -87,4 +92,3 @@ class UsersManager_PDO extends UsersManager
         return $requete->fetchAll();
     }
 }
-
