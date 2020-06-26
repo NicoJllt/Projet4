@@ -55,19 +55,24 @@ if (isset($_GET['action'])) {
 
             if (!$resultat) 
             {
-                echo 'Le mot de passe est incorrect.'
+                echo 'Le mot de passe est incorrect.';
             }
             else
             {
                 if ($isPasswordCorrect) {
                     session_start();
-                    $_SESSION['username'];
-                    $_SESSION['password']
+                    $_SESSION['userId'] = $resultat['userId'];
+                    $_SESSION['username'] = $username;
+                    $_SESSION['mail'] = $mail;
+                    echo 'Vous êtes connecté.';
+                }
+                else {
+                    echo 'Mauvais identifiant ou mot de passe.';
                 }
             }
-            
+
             $userCtlr = new UsersController();
-            $user = $userCtlr->logInUser($id, $pwd, $username, $mail);
+            $user = $userCtlr->logInUser($id, $pwd, $username, $mail, $resultat);
         } else {
             echo 'Informations incomplètes';
         }
@@ -80,6 +85,8 @@ if (isset($_GET['action'])) {
             $mail = $_POST['mail'];
             $pwd = $_POST['password'];
             $confirmPwd = $_POST['confirm-password'];
+
+            $pass_hache = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
             $userCtlr = new UsersController();
             $user = $userCtlr->subscribeUser($username, $mail, $pwd, $confirmPwd);

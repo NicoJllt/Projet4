@@ -20,12 +20,18 @@ class UsersManager_PDO extends UsersManager
 
     protected function add(Users $user)
     {
-        $requete = $this->dataBase->prepare('INSERT INTO users (username, mail, password, confirm-password) VALUES (:username, :mail, :password, :confirm-password)');
+        $requete = $this->dataBase->prepare('INSERT INTO users (username, mail, password, confirm-password, date_inscription) VALUES (:username, :mail, :password, :confirm-password, CURDATE())');
         $requete->bindValue(':username', $user->username(), PDO::PARAM_STR);
         $requete->bindValue(':mail', $user->mail(), PDO::PARAM_STR);
         $requete->bindValue(':password', $user->password(), PDO::PARAM_STR);
         $requete->bindValue(':confirm-password', $user->confirmPassword(), PDO::PARAM_STR);
-        $requete->execute();
+
+        $requete->execute(array(
+            'username' => $username,
+            'password' => $password,
+            'mail' => $mail
+        ));
+
         $user = $this->getUnique($this->dataBase->lastInsertId());
     }
 
@@ -44,20 +50,21 @@ class UsersManager_PDO extends UsersManager
         $requete->execute();
     }
 
-    public function logIn($id, $pwd, $username, $mail)
+    public function logIn($id, $pwd, $username, $mail, $resultat)
     {
         $requete = $this->dataBase->prepare('SELECT userId, password FROM users WHERE username = :username, mail = :mail');
         $requete->bindValue(':userId', (int) $id, PDO::PARAM_INT);
         $requete->bindValue(':password', $pwd, PDO::PARAM_STR);
         $requete->bindValue(':username', $username, PDO::PARAM_STR);
         $requete->bindValue(':mail', $mail, PDO::PARAM_STR);
+
         $requete->execute(array(
             'username' => $username,
             'mail' => $mail
         ));
-        $resultat = $req->fetch();
+
         $requete->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Users');
-        return $requete->fetch();
+        $resultat = $requete->fetch();
     }
 
     public function getUnique($id)

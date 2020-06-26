@@ -17,7 +17,7 @@ class UsersController
 
     function logInUser($id, $pwd, $username, $mail)
     {
-        $logIn = $this->manager->logIn($id, $pwd, $username, $mail);
+        $logIn = $this->manager->logIn($id, $pwd, $username, $mail, $resultat);
         return $logIn;
     }
 
