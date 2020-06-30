@@ -1,5 +1,8 @@
 <?php
 // MANAGER PDO DES UTILISATEURS
+
+require_once('UsersManager.php');
+
 class UsersManager_PDO extends UsersManager
 {
     /**
@@ -20,18 +23,11 @@ class UsersManager_PDO extends UsersManager
 
     protected function add(Users $user)
     {
-        $requete = $this->dataBase->prepare('INSERT INTO users (username, mail, password, confirm-password, date_inscription) VALUES (:username, :mail, :password, :confirm-password, CURDATE())');
+        $requete = $this->dataBase->prepare('INSERT INTO users (username, mail, password) VALUES (:username, :mail, :password');
         $requete->bindValue(':username', $user->username(), PDO::PARAM_STR);
         $requete->bindValue(':mail', $user->mail(), PDO::PARAM_STR);
         $requete->bindValue(':password', $user->password(), PDO::PARAM_STR);
-        $requete->bindValue(':confirm-password', $user->confirmPassword(), PDO::PARAM_STR);
-
-        $requete->execute(array(
-            'username' => $username,
-            'password' => $password,
-            'mail' => $mail
-        ));
-
+        $requete->execute();
         $user = $this->getUnique($this->dataBase->lastInsertId());
     }
 
@@ -43,25 +39,22 @@ class UsersManager_PDO extends UsersManager
 
     protected function update(Users $user)
     {
-        $requete = $this->dataBase->prepare('UPDATE users SET login = :login, password = :password WHERE userId = :userId');
-        $requete->bindValue(':username', $user->username(), PDO::PARAM_STR);
+        $requete = $this->dataBase->prepare('UPDATE users SET password = :password WHERE userId = :userId');
         $requete->bindValue(':password', $user->password(), PDO::PARAM_STR);
         $requete->bindValue(':userId', $user->userId(), PDO::PARAM_INT);
         $requete->execute();
     }
 
-    public function logIn($id, $pwd, $username, $mail, $resultat)
+    public function logIn($value, $isId)
     {
-        $requete = $this->dataBase->prepare('SELECT userId, password FROM users WHERE username = :username, mail = :mail');
-        $requete->bindValue(':userId', (int) $id, PDO::PARAM_INT);
-        $requete->bindValue(':password', $pwd, PDO::PARAM_STR);
-        $requete->bindValue(':username', $username, PDO::PARAM_STR);
-        $requete->bindValue(':mail', $mail, PDO::PARAM_STR);
+        $requete = $this->dataBase->prepare('SELECT * FROM users WHERE username = :username, mail = :mail');
+        if ($isId == $value) {
+            $requete->bindValue(':username', $username, PDO::PARAM_STR);
+        } else {
+            $requete->bindValue(':mail', $mail, PDO::PARAM_STR);
+        }
 
-        $requete->execute(array(
-            'username' => $username,
-            'mail' => $mail
-        ));
+        $requete->execute();
 
         $requete->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Users');
         $resultat = $requete->fetch();

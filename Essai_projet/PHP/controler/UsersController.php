@@ -15,20 +15,32 @@ class UsersController
         $this->manager = new UsersManager_PDO($db);
     }
 
-    function logInUser($id, $pwd, $username, $mail)
+    function subscribeUser($username, $mail, $passe_hache)
     {
-        $logIn = $this->manager->logIn($id, $pwd, $username, $mail, $resultat);
+        if (sizeof(new Users->errors !== 0)) {
+            $create = new Users(array('username' => $username, 'mail' => $mail, 'password' => $passe_hache));
+        } else {
+            $this->manager->save($create);
+            return $create;
+        }
+    }
+
+    function logInUser($id, $pwd, $isPasswordCorrect)
+    {
+        if ($isPasswordCorrect) {
+            session_start();
+            $_SESSION['id'] = $id;
+            echo 'Vous êtes connecté.';
+        } else {
+            echo 'Mauvais identifiant ou mot de passe.';
+        }
+
+        $logIn = $this->manager->logIn($id, $pwd);
         return $logIn;
     }
 
-    function subscribeUser($username, $mail, $pwd, $confirmPwd)
+    function deleteUser($id)
     {
-        $create = new Users(array('username' => $username, 'mail' => $mail, 'password' => $pwd, 'confirm-password' => $confirmPwd));
-        $this->manager->save($create);
-        return $create;
-    }
-
-    function deleteUser($id) {
         $this->manager->delete($id);
     }
 }

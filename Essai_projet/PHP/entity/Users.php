@@ -7,7 +7,7 @@ class Users
     $username,
     $mail,
     $password,
-    $confirmPassword;
+    $registrationDate;
 
   const INVALID_USERNAME = 1;
   const INVALID_MAIL = 2;
@@ -65,20 +65,18 @@ class Users
     }
   }
 
-  public function setConfirmPassword($confirmPassword)
+  public function setregistrationDate($registrationDate)
   {
-    if (!is_string($confirmPassword) || empty($confirmPassword)) {
-      $this->errors[] = self::INVALID_PASSWORD;
-    } else {
-      $this->confirmPassword = $confirmPassword;
-    }
+    $this->registrationDate = (int) $registrationDate;
   }
 
-  public function isNew() {
+  public function isNew()
+  {
     return is_null($this->userId);
   }
 
-  public function isValid() {
+  public function isValid()
+  {
     return empty($this->errors);
   }
 
@@ -109,8 +107,8 @@ class Users
     return $this->password;
   }
 
-  public function confirmPassword()
+  public function registrationDate()
   {
-    return $this->confirmPassword;
+    return $this->registrationDate;
   }
 }

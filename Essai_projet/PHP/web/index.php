@@ -2,6 +2,7 @@
 // ROUTEUR
 require_once('../autoload.php');
 require_once('../controler/NewsController.php');
+require_once('../controler/UsersController.php');
 
 require('../template/global.php');
 
@@ -43,39 +44,12 @@ if (isset($_GET['action'])) {
         } else {
             echo 'L\'épisode n\'existe plus';
         }
-    }
-
-    // si on trouve log-in dans l'action, on récupère le mail/identifiant et le mot de passe de l'utilisateur et on le compare?
-    else if ($_GET['action'] == 'log-in') {
-        if (isset($_GET['id']) && isset($_GET['password'])) {
-            $id = $_GET['username'] || $_GET['$mail'];
-            $pwd = $_GET['password'];
-
-            $isPasswordCorrect = password_verify($pwd, $resultat['password']);
-
-            if (!$resultat) 
-            {
-                echo 'Le mot de passe est incorrect.';
-            }
-            else
-            {
-                if ($isPasswordCorrect) {
-                    session_start();
-                    $_SESSION['userId'] = $resultat['userId'];
-                    $_SESSION['username'] = $username;
-                    $_SESSION['mail'] = $mail;
-                    echo 'Vous êtes connecté.';
-                }
-                else {
-                    echo 'Mauvais identifiant ou mot de passe.';
-                }
-            }
-
-            $userCtlr = new UsersController();
-            $user = $userCtlr->logInUser($id, $pwd, $username, $mail, $resultat);
-        } else {
-            echo 'Informations incomplètes';
-        }
+    } else if ($_GET['action'] == 'subscribe-page') {
+        require('../view/front/subscribe.php');
+    } else if ($_GET['action'] == 'login-page') {
+        require('../view/front/log-in.php');
+    } else if ($_GET['action'] == 'logout') {
+        require('../view/front/allNews.php');
     }
 
     // si on trouve subscribe dans l'action, on récupère le mail/identifiant et le mot de passe de l'utilisateur et on l'enregistre
@@ -86,12 +60,37 @@ if (isset($_GET['action'])) {
             $pwd = $_POST['password'];
             $confirmPwd = $_POST['confirm-password'];
 
-            $pass_hache = password_hash($_POST['password'], PASSWORD_DEFAULT);
+            if ($pwd === $confirmPwd) {
 
-            $userCtlr = new UsersController();
-            $user = $userCtlr->subscribeUser($username, $mail, $pwd, $confirmPwd);
+                $pass_hache = password_hash($pwd, PASSWORD_DEFAULT);
+
+                $userCtlr = new UsersController();
+                $user = $userCtlr->subscribeUser($username, $mail, $pass_hache);
+            } else {
+                echo 'Les mots de passe ne correspondent pas.';
+            }
         } else {
             echo 'Informations incomplètes.';
+        }
+    }
+
+    // si on trouve log-in dans l'action, on récupère le mail/identifiant et le mot de passe de l'utilisateur et on le compare?
+    else if ($_GET['action'] == 'log-in') {
+        if (isset($_GET['id']) && isset($_GET['password'])) {
+            if ($_GET['username']) {
+                $id = $_GET['username'];
+            } else if ($_GET['mail']) {
+                $id = $_GET['mail'];
+            }
+
+            $pwd = $_GET['password'];
+
+            $isPasswordCorrect = password_verify($pwd, $pass_hache);
+
+            $userCtlr = new UsersController();
+            $user = $userCtlr->logInUser($id, $pwd, $isPasswordCorrect);
+        } else {
+            echo 'Informations incomplètes';
         }
     }
 

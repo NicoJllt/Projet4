@@ -18,7 +18,7 @@
 
         <section class="row">
             <div class="col-lg-12">
-                <form method="get" action="index.php?action=log-in">
+                <form method="get" action="../../web/index.php?action=log-in">
                     <div id="log-in-form-bloc">
                         <h1 id="header-form-log-in">Identification</h1>
 
