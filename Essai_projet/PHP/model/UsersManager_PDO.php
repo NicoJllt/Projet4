@@ -45,19 +45,19 @@ class UsersManager_PDO extends UsersManager
         $requete->execute();
     }
 
-    public function logIn($value, $isId)
+    public function searchById($isId)
     {
         $requete = $this->dataBase->prepare('SELECT * FROM users WHERE username = :username, mail = :mail');
-        if ($isId == $value) {
-            $requete->bindValue(':username', $username, PDO::PARAM_STR);
+        if ($isId = $_GET['username']) {
+            $requete->bindValue(':username', $isId, PDO::PARAM_STR);
         } else {
-            $requete->bindValue(':mail', $mail, PDO::PARAM_STR);
+            $requete->bindValue(':mail', $isId, PDO::PARAM_STR);
         }
 
         $requete->execute();
 
         $requete->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Users');
-        $resultat = $requete->fetch();
+        $requete->fetch();
     }
 
     public function getUnique($id)
@@ -73,20 +73,6 @@ class UsersManager_PDO extends UsersManager
     {
         // Une requête sans paramètre : on fait un query directement
         $requete = $this->dataBase->query('SELECT * FROM users');
-        $requete->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Users');
-        // On collecte et retourne les réponses
-        return $requete->fetchAll();
-    }
-
-    public function searchByName($name)
-    {
-        // Une requête avec des paramètres : on utilise une requête préparée
-        $requete = $this->dataBase->prepare('SELECT * FROM users WHERE username LIKE :username ORDER BY username ASC');
-        // On associe les valeurs aux paramètres de la requête
-        $requete->bindValue(':username', '%' . $name . '%', PDO::PARAM_STR);
-        // On exécute la requête
-        $requete->execute();
-        // On associe un objet de type Cities à chaque réponse
         $requete->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Users');
         // On collecte et retourne les réponses
         return $requete->fetchAll();

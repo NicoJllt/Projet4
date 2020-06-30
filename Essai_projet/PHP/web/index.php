@@ -84,11 +84,10 @@ if (isset($_GET['action'])) {
             }
 
             $pwd = $_GET['password'];
-
             $isPasswordCorrect = password_verify($pwd, $pass_hache);
 
             $userCtlr = new UsersController();
-            $user = $userCtlr->logInUser($id, $pwd, $isPasswordCorrect);
+            $user = $userCtlr->logInUser($id, $isPasswordCorrect);
         } else {
             echo 'Informations incomplètes';
         }

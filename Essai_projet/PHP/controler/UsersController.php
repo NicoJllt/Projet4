@@ -19,23 +19,25 @@ class UsersController
     {
         if (sizeof(new Users->errors !== 0)) {
             $create = new Users(array('username' => $username, 'mail' => $mail, 'password' => $passe_hache));
-        } else {
             $this->manager->save($create);
             return $create;
+        } else {
+            echo 'Il manque des informations.';
         }
     }
 
-    function logInUser($id, $pwd, $isPasswordCorrect)
+    function logInUser($id, $isPasswordCorrect)
     {
-        if ($isPasswordCorrect) {
+        $logIn = $this->manager->searchById($id, $isPasswordCorrect);
+
+        if (isset($logIn)) {
             session_start();
             $_SESSION['id'] = $id;
             echo 'Vous êtes connecté.';
         } else {
             echo 'Mauvais identifiant ou mot de passe.';
         }
-
-        $logIn = $this->manager->logIn($id, $pwd);
+        
         return $logIn;
     }
 
