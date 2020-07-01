@@ -30,14 +30,14 @@ class UsersController
     {
         $logIn = $this->manager->searchById($id, $isPasswordCorrect);
 
-        if (isset($logIn)) {
+        if (isset($logIn) == true) {
             session_start();
             $_SESSION['id'] = $id;
             echo 'Vous êtes connecté.';
         } else {
             echo 'Mauvais identifiant ou mot de passe.';
         }
-        
+
         return $logIn;
     }
 

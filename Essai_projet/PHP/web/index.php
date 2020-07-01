@@ -77,10 +77,11 @@ if (isset($_GET['action'])) {
     // si on trouve log-in dans l'action, on récupère le mail/identifiant et le mot de passe de l'utilisateur et on le compare?
     else if ($_GET['action'] == 'log-in') {
         if (isset($_GET['id']) && isset($_GET['password'])) {
-            if ($_GET['username']) {
-                $id = $_GET['username'];
-            } else if ($_GET['mail']) {
-                $id = $_GET['mail'];
+            $userId = new Users();
+            if (preg_match($_GET['id'], '@', $id)) {
+                $userId->mail($id);
+            } else {
+                $userId->username($id);
             }
 
             $pwd = $_GET['password'];

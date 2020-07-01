@@ -45,13 +45,19 @@ class UsersManager_PDO extends UsersManager
         $requete->execute();
     }
 
-    public function searchById($isId)
+    public function searchById($id, $isPasswordCorrect)
     {
-        $requete = $this->dataBase->prepare('SELECT * FROM users WHERE username = :username, mail = :mail');
-        if ($isId = $_GET['username']) {
-            $requete->bindValue(':username', $isId, PDO::PARAM_STR);
+        $requete = $this->dataBase->prepare('SELECT * FROM users WHERE username = :username, mail = :mail, password = :password');
+        if ($id == 'username') {
+            $requete->bindValue(':username', $id, PDO::PARAM_STR);
+        } else if ($id == 'mail') {
+            $requete->bindValue(':mail', $id, PDO::PARAM_STR);
+        }
+
+        if ($isPasswordCorrect == true) {
+        $requete->bindValue(':password', $isPasswordCorrect, PDO::PARAM_STR);
         } else {
-            $requete->bindValue(':mail', $isId, PDO::PARAM_STR);
+            echo 'Le mot de passe est incorrect';
         }
 
         $requete->execute();
