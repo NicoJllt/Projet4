@@ -8,9 +8,9 @@
                     <li><a href="index.php?action=showLastNews" class="last-episodes-nav">Derniers épisodes</a></li>
                 
                     <li><input type="search" class="site-search-nav" name="q" aria-label="Search"></li>
-                    <li><a href="index.php?action=subscribe-page" class="register-nav">S'inscrire</button></li>
-                    <li><a href="index.php?action=login-page" class="connection-nav">Se connecter</button></li>
-                    <li><a href="index.php?action=logout" class="logout-nav">Se déconnecter</button></li>
+                    <li><a href="index.php?action=subscribe-page" class="register-nav">S'inscrire</a></button></li>
+                    <li><a href="index.php?action=login-page" class="connection-nav">Se connecter</a></button></li>
+                    <li><a href="index.php?action=logout" class="logout-nav">Se déconnecter</a></button></li>
                 </ul>
             </nav>
         </div>

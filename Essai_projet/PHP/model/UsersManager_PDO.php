@@ -23,7 +23,7 @@ class UsersManager_PDO extends UsersManager
 
     protected function add(Users $user)
     {
-        $requete = $this->dataBase->prepare('INSERT INTO users (username, mail, password) VALUES (:username, :mail, :password');
+        $requete = $this->dataBase->prepare('INSERT INTO users (username, mail, password) VALUES (:username, :mail, :password)');
         $requete->bindValue(':username', $user->username(), PDO::PARAM_STR);
         $requete->bindValue(':mail', $user->mail(), PDO::PARAM_STR);
         $requete->bindValue(':password', $user->password(), PDO::PARAM_STR);

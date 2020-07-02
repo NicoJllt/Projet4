@@ -15,14 +15,21 @@ class UsersController
         $this->manager = new UsersManager_PDO($db);
     }
 
-    function subscribeUser($username, $mail, $passe_hache)
+    function subscribeUser($username, $mail, $pwd, $confirmPwd)
     {
-        if (sizeof(new Users->errors !== 0)) {
-            $create = new Users(array('username' => $username, 'mail' => $mail, 'password' => $passe_hache));
-            $this->manager->save($create);
-            return $create;
+        if ($pwd === $confirmPwd) {
+
+            password_hash($pwd, PASSWORD_DEFAULT);
+
+            $create = new Users(array('username' => $username, 'mail' => $mail, 'password' => $pwd));
+            if (count($create->errors() === 0)) {
+                $this->manager->save($create);
+                return $create;
+            } else {
+                echo 'Les informations comportent une erreur.';
+            }
         } else {
-            echo 'Il manque des informations.';
+            echo 'Les mots de passe ne concordent pas.';
         }
     }
 

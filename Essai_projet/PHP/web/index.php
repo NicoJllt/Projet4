@@ -60,15 +60,8 @@ if (isset($_GET['action'])) {
             $pwd = $_POST['password'];
             $confirmPwd = $_POST['confirm-password'];
 
-            if ($pwd === $confirmPwd) {
-
-                $pass_hache = password_hash($pwd, PASSWORD_DEFAULT);
-
-                $userCtlr = new UsersController();
-                $user = $userCtlr->subscribeUser($username, $mail, $pass_hache);
-            } else {
-                echo 'Les mots de passe ne correspondent pas.';
-            }
+            $userCtlr = new UsersController();
+            $user = $userCtlr->subscribeUser($username, $mail, $pwd, $confirmPwd);
         } else {
             echo 'Informations incomplètes.';
         }

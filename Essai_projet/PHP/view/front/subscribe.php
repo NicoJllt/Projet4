@@ -18,7 +18,7 @@
 
         <section class="row">
             <div class="col-lg-12">
-                <form method="post" action="../../web/index.php?action=subscribe">
+                <form method="post" action="index.php?action=subscribe">
                     <div id="subscribe-form-bloc">
                         <h1 id="header-form-subscribe">Inscription</h1>
 
