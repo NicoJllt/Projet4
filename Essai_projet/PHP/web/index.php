@@ -62,6 +62,11 @@ if (isset($_GET['action'])) {
 
             $userCtlr = new UsersController();
             $user = $userCtlr->subscribeUser($username, $mail, $pwd, $confirmPwd);
+            if (!is_null($user)) {
+                header('Location: index.php');
+            } else {
+                echo 'Il manque des informations.';
+            }
         } else {
             echo 'Informations incomplètes.';
         }

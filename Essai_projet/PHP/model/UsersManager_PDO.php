@@ -28,7 +28,9 @@ class UsersManager_PDO extends UsersManager
         $requete->bindValue(':mail', $user->mail(), PDO::PARAM_STR);
         $requete->bindValue(':password', $user->password(), PDO::PARAM_STR);
         $requete->execute();
-        $user = $this->getUnique($this->dataBase->lastInsertId());
+        $temp = $this->getUnique($this->dataBase->lastInsertId());
+        $user->setId($temp->userId());
+        $user->setRegistrationDate($temp->registrationDate());
     }
 
     public function delete($id)
