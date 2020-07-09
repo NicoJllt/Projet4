@@ -106,9 +106,6 @@
 
 .register-nav, .connection-nav, .logout-nav {
     border: none;
-    padding: 5px;
-    color: white;
-    background-color: #212931;
 }
 
 .register-nav:hover, .connection-nav:hover, .logout-nav:hover {
