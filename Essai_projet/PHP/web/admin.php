@@ -24,7 +24,8 @@ if (isset($_GET['action'])) {
         if (!empty($message)) {
             require('../view/front/showMessages.php');
         } else {
-            echo 'Aucun commentaire n\'a été trouvé';
+            $error = 'Aucun commentaire n\'a été trouvé';
+            require('../view/front/error.php');
         }
     } else if (($_GET['action']) == 'addComment') {
         if (isset($_POST['content'])) {

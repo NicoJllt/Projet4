@@ -16,7 +16,8 @@ if (isset($_GET['action'])) {
         if (!empty($news)) {
             require('../view/front/allNews.php');
         } else {
-            echo 'Aucun épisode n\'a été trouvé';
+            $error = 'Aucun épisode n\'a été trouvé';
+            require('../view/front/error.php');
         }
     }
 
@@ -29,7 +30,8 @@ if (isset($_GET['action'])) {
         if (!empty($news)) {
             require('../view/front/allNews.php');
         } else {
-            echo 'Aucun épisode n\'a été trouvé';
+            $error = 'Aucun épisode n\'a été trouvé';
+            require('../view/front/error.php');
         }
     }
 
@@ -42,7 +44,8 @@ if (isset($_GET['action'])) {
         if (!empty($news)) {
             require('../view/front/viewNews.php');
         } else {
-            echo 'L\'épisode n\'existe plus';
+            $error = 'L\'épisode n\'existe plus';
+            require('../view/front/error.php');
         }
     } else if ($_GET['action'] == 'subscribe-page') {
         require('../view/front/subscribe.php');
@@ -65,10 +68,12 @@ if (isset($_GET['action'])) {
             if (!is_null($user)) {
                 header('Location: index.php');
             } else {
-                echo 'Il manque des informations.';
+                $error = 'Il manque des informations.';
+                require('../view/front/error.php');
             }
         } else {
-            echo 'Informations incomplètes.';
+            $error = 'Informations incomplètes.';
+            require('../view/front/error.php');
         }
     }
 
@@ -88,7 +93,8 @@ if (isset($_GET['action'])) {
             $userCtlr = new UsersController();
             $user = $userCtlr->logInUser($id, $isPasswordCorrect);
         } else {
-            echo 'Informations incomplètes';
+            $error = 'Informations incomplètes';
+            require('../view/front/error.php');
         }
     }
 

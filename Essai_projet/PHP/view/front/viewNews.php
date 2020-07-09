@@ -39,40 +39,50 @@
             <?php } ?>
         </section>
 
-        <section class="row">
-            <div class="col-lg-12">
-                <div id="comment-page-bloc">
-                    <div class="show-comments">
-                        <a href="index.php?action=showMessages&id=idMessage">
-                            <button id="show-comments-button">Afficher les commentaires</button>
-                        </a>
+        <?php
+        if (!is_null($user->userId())) {
+        ?>
 
-                        <?php
-                        foreach ($message as $showMessage) {
-                        ?>
-                            <div class="comment-bloc">
-                                <div class="message-user-name"><?= $showMessage->userName() ?></div>
-                                <div class="message-date"><?= date_parse($showMessage->dateMessage()) ?></div>
-                                <p class="message-content"><?= $showMessage->content() ?></p>
-                            </div>
+            <section class="row">
+                <div class="col-lg-12">
+                    <div id="comment-page-bloc">
+                        <div class="show-comments">
+                            <a href="index.php?action=showMessages&id=idMessage">
+                                <button id="show-comments-button">Afficher les commentaires</button>
                             </a>
-                        <?php } ?>
-                    </div>
 
-                    <div id="add-comment-bloc">
-                        <form method="post" action="admin.php?action=addComment">
-                            <h1>Laisser un commentaire</h1>
+                            <?php
+                            foreach ($message as $showMessage) {
+                            ?>
+                                <div class="comment-bloc">
+                                    <div class="message-user-name"><?= $showMessage->userName() ?></div>
+                                    <div class="message-date"><?= date_parse($showMessage->dateMessage()) ?></div>
+                                    <p class="message-content"><?= $showMessage->content() ?></p>
+                                </div>
+                                </a>
+                            <?php } ?>
+                        </div>
 
-                            <textarea name="content" rows="5" cols="141"></textarea>
+                        <div id="add-comment-bloc">
+                            <form method="post" action="admin.php?action=addComment">
+                                <h1>Laisser un commentaire</h1>
 
-                            <div id="comment-form-button">
-                                <button type="submit" value="Valider le commentaire">Valider</button>
-                            </div>
-                        </form>
+                                <textarea name="content" rows="5" cols="141"></textarea>
+
+                                <div id="comment-form-button">
+                                    <button type="submit" value="Valider le commentaire">Valider</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
+            </section>
+
+        <?php } else { ?>
+            <div>
+                <p>Vous devez vous connecter afin d'afficher ou d'ajouter un commentaire.</p>
             </div>
-        </section>
+        <?php } ?>
 
     </div>
 </body>
